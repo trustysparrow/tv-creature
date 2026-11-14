@@ -1,0 +1,1291 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="TV Creature">
+<meta name="theme-color" content="#04020c">
+<title>TV Creature</title>
+<!-- LG TV Remote. Created using Claude by Anthropic. Reviewed by ALIVE Solar & Roofing. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap">
+<style>
+
+body{margin:0}
+a{color:#c9ceff}a:hover{color:#ffffff}
+@keyframes drift{0%,100%{transform:translate(0,0);opacity:.25}50%{transform:translate(5px,-16px);opacity:.75}}
+@keyframes sway{0%,100%{transform:rotate(0deg)}50%{transform:rotate(1.6deg)}}
+@keyframes swayB{0%,100%{transform:rotate(0deg)}50%{transform:rotate(-2deg)}}
+@keyframes breathe{0%,100%{transform:scale(1,1)}50%{transform:scale(1.025,.975)}}
+@keyframes heart{0%,100%{box-shadow:0 0 26px 6px rgba(255,120,140,.35), inset -6px -10px 18px rgba(80,10,30,.55), inset 6px 8px 14px rgba(255,230,230,.35)}50%{box-shadow:0 0 44px 14px rgba(255,120,140,.5), inset -6px -10px 18px rgba(80,10,30,.55), inset 6px 8px 14px rgba(255,230,230,.35)}}
+@keyframes ripple{0%{transform:scale(.6);opacity:.9}100%{transform:scale(1.9);opacity:0}}
+@keyframes tongueOut{0%{transform:scaleY(0) scaleX(.5);opacity:0}50%{transform:scaleY(1.12) scaleX(.94);opacity:1}70%{transform:scaleY(.94) scaleX(1.04)}85%{transform:scaleY(1.03) scaleX(.99)}100%{transform:scaleY(1) scaleX(1)}}
+@keyframes stemGrow{from{stroke-dashoffset:600}to{stroke-dashoffset:0}}
+@keyframes leafIn{0%{transform:rotate(var(--rot)) scale(.15);opacity:0}60%{transform:rotate(calc(var(--tilt) - var(--rot) * .15)) scale(1.08);opacity:1}100%{transform:rotate(var(--tilt)) scale(1);opacity:1}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+.wet{position:absolute;box-sizing:border-box;border:0;padding:0;cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation;user-select:none;font-family:Quicksand,system-ui,sans-serif;font-weight:700;font-size:13px;color:#ffffff;text-shadow:0 0 8px rgba(190,200,255,.8), 0 1px 2px rgba(10,10,40,.8);display:flex;align-items:center;justify-content:center;gap:5px;
+  background:radial-gradient(9% 7% at 28% 20%, rgba(255,255,255,1), rgba(255,255,255,0) 100%), radial-gradient(38% 28% at 34% 24%, rgba(255,255,255,.55), rgba(255,255,255,0) 100%), radial-gradient(60% 30% at 60% 96%, rgba(200,170,255,.45), rgba(200,170,255,0) 100%), radial-gradient(120% 120% at 40% 30%, rgba(175,182,255,.62), rgba(92,98,215,.42) 42%, rgba(30,30,100,.7) 72%, rgba(12,12,48,.9));
+  box-shadow:inset -5px -8px 14px rgba(8,8,40,.65), inset 4px 5px 10px rgba(225,228,255,.4), 0 8px 18px rgba(0,0,0,.55), 0 0 20px rgba(120,130,255,.28);
+  transition:transform .9s cubic-bezier(.18,2.4,.4,1), box-shadow 1.6s ease, filter 1.6s ease}
+.wet::after{content:'';position:absolute;inset:-4px;border-radius:inherit;border:2px solid var(--glow,#b9c0ff);opacity:0;pointer-events:none}
+.wet:active{transform:scale(1.08,.72);transition:transform .08s ease-out, box-shadow .1s, filter .1s;filter:brightness(1.35) saturate(1.2);box-shadow:inset -3px -5px 10px rgba(8,8,40,.5), inset 3px 4px 14px rgba(255,255,255,.55), 0 0 40px 14px color-mix(in srgb, var(--glow,#9aa3ff) 55%, transparent)}
+.wet:active::after{animation:ripple .7s ease-out infinite}
+.wet:focus-visible{outline:2px solid #ffffff;outline-offset:4px}
+.wet svg{filter:drop-shadow(0 0 4px rgba(220,225,255,.8))}
+
+.sucker{--glow:#ff9ab0;border-radius:50%;
+  background:radial-gradient(10% 7% at 30% 20%, rgba(255,255,255,1), rgba(255,255,255,0) 100%), radial-gradient(30% 22% at 36% 24%, rgba(255,255,255,.5), rgba(255,255,255,0) 100%), radial-gradient(circle at 50% 56%, #5a1a34 0 22%, #b44a5a 30%, #f2a29c 40%, #ffd0c8 47%, #e6847e 56%, #b8505c 72%, #6a2238 100%);
+  box-shadow:inset -4px -7px 12px rgba(60,6,24,.6), inset 3px 4px 8px rgba(255,230,225,.45), 0 8px 16px rgba(0,0,0,.55), 0 0 18px rgba(255,120,140,.3)}
+.sucker:active{box-shadow:inset 0 0 18px rgba(255,240,240,.7), 0 0 44px 16px rgba(255,130,160,.55)}
+
+.speck::before{content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:
+  radial-gradient(circle at 18% 32%, #fff 0 1.6px, transparent 2.6px), radial-gradient(circle at 27% 58%, #fff 0 2.2px, transparent 3.2px), radial-gradient(circle at 36% 18%, #ffe8ee 0 1.2px, transparent 2.2px),
+  radial-gradient(circle at 44% 72%, #fff 0 1.4px, transparent 2.4px), radial-gradient(circle at 52% 40%, #fff 0 2.6px, transparent 3.6px), radial-gradient(circle at 61% 22%, #fff 0 1.3px, transparent 2.3px),
+  radial-gradient(circle at 68% 62%, #ffe8ee 0 2px, transparent 3px), radial-gradient(circle at 77% 36%, #fff 0 1.5px, transparent 2.5px), radial-gradient(circle at 82% 70%, #fff 0 1.2px, transparent 2.2px),
+  radial-gradient(circle at 24% 82%, #fff 0 1.1px, transparent 2px), radial-gradient(circle at 58% 86%, #fff 0 1.7px, transparent 2.7px), radial-gradient(circle at 40% 48%, #ffe8ee 0 1px, transparent 2px),
+  radial-gradient(circle at 72% 14%, #fff 0 1px, transparent 2px), radial-gradient(circle at 12% 54%, #fff 0 1.3px, transparent 2.3px), radial-gradient(circle at 88% 50%, #ffe8ee 0 1.6px, transparent 2.6px);
+  filter:drop-shadow(0 0 2px rgba(255,255,255,.9))}
+.core{--glow:#ff9ab0;
+  background:radial-gradient(10% 7% at 28% 18%, rgba(255,255,255,1), rgba(255,255,255,0) 100%), radial-gradient(34% 24% at 36% 24%, rgba(255,255,255,.5), rgba(255,255,255,0) 100%), radial-gradient(60% 30% at 55% 96%, rgba(255,200,180,.5), rgba(255,200,180,0) 100%), radial-gradient(110% 110% at 40% 34%, #ffc2bc, #ee7f72 38%, #c24a58 66%, #6e2240 100%);
+  animation:heart 4.5s ease-in-out infinite}
+.core:active{animation:none}
+.goo{filter:url(#goo)}
+.flesh{background:radial-gradient(70% 70% at 45% 40%, rgba(255,150,180,.55), rgba(140,120,255,.5) 45%, rgba(70,70,200,.55) 75%, rgba(40,40,140,.7))}
+@keyframes twinkle{0%,100%{opacity:.35}50%{opacity:1}}
+.rim{animation:twinkle 3s ease-in-out infinite}
+.spore{position:absolute;border-radius:50%;animation:drift 14s ease-in-out infinite;pointer-events:none}
+.sway{animation:sway 9s ease-in-out infinite;transform-origin:50% 0}
+.swayB{animation:swayB 11s ease-in-out infinite}
+.breathe{animation:breathe 7s ease-in-out infinite;transform-origin:50% 0}
+.scrim{animation:fadeIn .4s ease both}
+.tongue{transform-origin:50% 0;animation:tongueOut .9s cubic-bezier(.3,1.3,.5,1) both}
+.titem{transition:background 1s ease, text-shadow 1s ease}
+.titem:active{transition:background .1s;background:rgba(255,230,235,.3);text-shadow:0 0 12px #ffffff}
+.stem{stroke-dasharray:600;animation:stemGrow .9s ease-out both}
+.leaf{animation:leafIn .7s cubic-bezier(.3,1.5,.5,1) both;transition:filter 1.2s ease;
+  background:linear-gradient(180deg, transparent 46%, rgba(235,240,255,.6) 50%, transparent 54%), radial-gradient(14% 22% at var(--hx) 28%, rgba(255,255,255,.9), rgba(255,255,255,0) 100%), radial-gradient(140% 170% at var(--tipx) 50%, rgba(225,232,255,.8), rgba(130,140,255,.62) 38%, rgba(50,50,160,.85) 72%, rgba(14,14,60,.95));
+  box-shadow:0 0 24px 5px rgba(140,150,255,.5), inset -3px -5px 10px rgba(10,10,50,.5), inset 2px 3px 8px rgba(230,235,255,.5)}
+.leaf:active{transition:filter .1s;filter:brightness(1.6) drop-shadow(0 0 14px #b9c0ff)}
+.tab:active{filter:drop-shadow(0 0 8px #9aa3ff);color:#ffffff}
+.vein{stroke-dasharray:3 26;animation:flow 8s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-200}}
+.tab{position:relative}
+
+.pad{transition:transform .9s cubic-bezier(.18,2.2,.4,1), filter 1.6s ease;touch-action:none}
+.field{transition:box-shadow 1s ease}
+.live{animation:heartbeat 2.4s ease-in-out infinite}
+@keyframes heartbeat{0%,100%{box-shadow:0 0 6px 1px #ff9ab0}50%{box-shadow:0 0 16px 5px #ff9ab0}}
+html,body{margin:0;height:100%;background:#04020c;overflow:hidden;overscroll-behavior:none;-webkit-user-select:none;user-select:none}
+#stage{position:absolute;left:50%;top:50%;width:390px;height:900px;transform-origin:50% 50%;overflow:hidden;background:#04020c}
+.view{position:absolute;inset:0;display:none}
+.view.on{display:block}
+.tab{position:relative;display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#a7aee0;font:600 12px Quicksand,system-ui,sans-serif}
+.tab.on{color:#ffffff;font-weight:700;filter:drop-shadow(0 0 6px #9aa3ff)}
+.vdot{position:absolute;width:10px;height:10px;border-radius:50%;background:rgba(80,20,40,.7);box-shadow:inset 0 1px 2px rgba(0,0,0,.6);transition:background .3s, box-shadow .3s;pointer-events:none}
+.vdot.lit{background:#ffe2e6;box-shadow:0 0 10px 3px #ff9ab0}
+#toast{position:absolute;left:50%;top:84px;transform:translateX(-50%);z-index:50;max-width:330px;padding:12px 18px;border-radius:24px 18px 26px 20px;background:radial-gradient(120% 120% at 30% 20%, rgba(255,170,190,.5), rgba(90,30,70,.92));color:#fff;font:700 14px Quicksand,system-ui,sans-serif;text-align:center;box-shadow:0 0 30px rgba(255,120,150,.4);opacity:0;pointer-events:none;transition:opacity .5s}
+#toast.show{opacity:1}
+.statusDot.offline{background:#6a5070 !important;animation:none !important}
+input.wet{-webkit-user-select:text;user-select:text}
+input.wet::placeholder{color:#eef0ff;opacity:.72;text-shadow:none}
+</style>
+</head>
+<body>
+<div id="stage">
+<svg width="0" height="0" style="position: absolute" aria-hidden="true">
+    <defs>
+      <filter id="goo" x="-20%" y="-20%" width="140%" height="140%">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="9" result="b"/>
+        <feColorMatrix in="b" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 30 -13" result="g"/>
+        <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="2" seed="4" result="n">
+          <animate attributeName="baseFrequency" dur="18s" values="0.018;0.024;0.018" repeatCount="indefinite"/>
+        </feTurbulence>
+        <feDisplacementMap in="g" in2="n" scale="6" xChannelSelector="R" yChannelSelector="G" result="d"/>
+        <feGaussianBlur in="d" stdDeviation="5" result="ab"/>
+        <feSpecularLighting in="ab" surfaceScale="7" specularConstant="1.2" specularExponent="24" lighting-color="#ffffff" result="spec"><fePointLight x="110" y="420" z="190"/></feSpecularLighting>
+        <feComposite in="spec" in2="d" operator="in" result="specIn"/>
+        <feComposite in="d" in2="specIn" operator="arithmetic" k1="0" k2="1" k3=".9" k4="0"/>
+      </filter>
+      <filter id="wet" filterUnits="userSpaceOnUse" x="-20" y="-40" width="430" height="960">
+        <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="a"/>
+        <feSpecularLighting in="a" surfaceScale="5" specularConstant="1.1" specularExponent="22" lighting-color="#ffffff" result="s"><feDistantLight azimuth="225" elevation="40"/></feSpecularLighting>
+        <feComposite in="s" in2="SourceAlpha" operator="in" result="si"/>
+        <feComposite in="SourceGraphic" in2="si" operator="arithmetic" k1="0" k2="1" k3=".5" k4="0"/>
+      </filter>
+      <radialGradient id="bellFill" cx="45%" cy="30%" r="75%">
+        <stop offset="0" stop-color="#c9ceff" stop-opacity=".55"/>
+        <stop offset=".45" stop-color="#7f88f0" stop-opacity=".35"/>
+        <stop offset="1" stop-color="#2a2e8a" stop-opacity=".25"/>
+      </radialGradient>
+      <linearGradient id="tent" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#e88a8a"/>
+        <stop offset=".6" stop-color="#b8505c"/>
+        <stop offset="1" stop-color="#6a2238"/>
+      </linearGradient>
+    </defs>
+  </svg>
+<section class="view" id="v-remote" style="position: relative; overflow: hidden; width: 390px; height: 900px; box-sizing: border-box; background: linear-gradient(170deg, rgba(120,130,255,.10) 0%, transparent 30%), linear-gradient(190deg, transparent 20%, rgba(120,130,255,.06) 32%, transparent 44%), radial-gradient(60% 40% at 40% 66%, rgba(140,60,120,.22), transparent 70%), linear-gradient(180deg, #0c0828 0%, #08041a 50%, #04020c 100%); color: #e6e8ff; font-family: Quicksand, system-ui, sans-serif">
+
+
+  
+  <svg aria-hidden="true" width="390" height="900" viewBox="0 0 390 900" fill="none" style="position: absolute; left: 0; top: 0; pointer-events: none">
+    <defs>
+      <filter id="skin" filterUnits="userSpaceOnUse" x="0" y="0" width="390" height="900">
+        <feTurbulence type="fractalNoise" baseFrequency="0.028 0.022" numOctaves="3" seed="11" result="n">
+          <animate attributeName="baseFrequency" dur="22s" values="0.028 0.022;0.031 0.025;0.028 0.022" repeatCount="indefinite"/>
+        </feTurbulence>
+        <feSpecularLighting in="n" surfaceScale="3.2" specularConstant=".9" specularExponent="16" lighting-color="#c8ccff" result="s"><fePointLight x="150" y="200" z="260"/></feSpecularLighting>
+        <feColorMatrix in="s" type="matrix" values="0 0 0 0 .78  0 0 0 0 .8  0 0 0 0 1  .33 .33 .33 0 -.18"/>
+      </filter>
+      <filter id="cells" filterUnits="userSpaceOnUse" x="0" y="0" width="390" height="900">
+        <feTurbulence type="turbulence" baseFrequency="0.045" numOctaves="1" seed="3" result="t"/>
+        <feColorMatrix in="t" type="matrix" values="0 0 0 0 .55  0 0 0 0 .3  0 0 0 0 .75  -1.4 0 0 0 .55"/>
+      </filter>
+      <radialGradient id="wallL" cx="0" cy=".5" r="1"><stop offset="0" stop-color="#2a0a2c"/><stop offset=".6" stop-color="#14061e" stop-opacity=".6"/><stop offset="1" stop-color="#14061e" stop-opacity="0"/></radialGradient>
+      <radialGradient id="wallR" cx="1" cy=".5" r="1"><stop offset="0" stop-color="#1c0a34"/><stop offset=".6" stop-color="#0e0620" stop-opacity=".6"/><stop offset="1" stop-color="#0e0620" stop-opacity="0"/></radialGradient>
+    </defs>
+    <rect width="390" height="900" filter="url(#cells)" opacity=".2"/>
+    <ellipse cx="154" cy="592" rx="120" ry="96" fill="#ff6f9a" opacity="0.22" style="filter: blur(30px)"/>
+    <ellipse cx="195" cy="60" rx="160" ry="128" fill="#7f88ff" opacity="0.2" style="filter: blur(30px)"/>
+    <ellipse cx="320" cy="640" rx="90" ry="72" fill="#ff7a8a" opacity="0.15" style="filter: blur(30px)"/>
+    <path d="M0 0 L 34 0 C 18 120, 46 220, 22 330 S 40 560, 18 700 S 36 860, 26 900 L 0 900 Z" fill="url(#wallL)"/>
+    <path d="M390 0 L 356 0 C 372 140, 344 260, 368 380 S 350 600, 372 720 S 354 860, 364 900 L 390 900 Z" fill="url(#wallR)"/>
+    <path d="M34 0 C 18 120, 46 220, 22 330 S 40 560, 18 700 S 36 860, 26 900" stroke="#ff9ab0" stroke-opacity=".22" stroke-width="1.4"/>
+    <path d="M356 0 C 372 140, 344 260, 368 380 S 350 600, 372 720 S 354 860, 364 900" stroke="#9aa3ff" stroke-opacity=".25" stroke-width="1.4"/>
+    <g stroke-linecap="round">
+      <path d="M341 236 C 337 224, 335 211, 327 200" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M327 200 C 319 200, 317 188, 308 188" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M308 188 C 304 193, 298 189, 293 192" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M308 188 C 303 189, 298 194, 292 192" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M327 200 C 322 195, 313 196, 309 189" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M309 189 C 304 190, 299 190, 294 190" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M379 144 C 388 127, 378 113, 372 99" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M372 99 C 371 90, 368 82, 362 75" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M362 75 C 357 73, 353 70, 349 68" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M362 75 C 357 71, 356 66, 354 61" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M372 99 C 361 96, 357 86, 353 77" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M353 77 C 345 77, 342 70, 337 67" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M353 77 C 345 74, 346 64, 338 61" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M57 93 C 73 92, 86 79, 103 89" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M103 89 C 115 89, 123 82, 131 76" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M131 76 C 135 71, 140 67, 143 61" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M131 76 C 135 69, 145 69, 146 61" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M103 89 C 112 87, 119 83, 126 77" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M126 77 C 127 71, 128 65, 133 60" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M126 77 C 131 80, 137 79, 143 81" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M42 168 C 32 175, 28 185, 23 195" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M23 195 C 20 203, 23 210, 28 216" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M28 216 C 26 221, 22 224, 21 230" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M28 216 C 26 220, 23 224, 21 229" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M23 195 C 23 202, 19 208, 20 215" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M67 125 C 58 118, 54 108, 51 96" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M51 96 C 51 91, 52 85, 55 81" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M51 96 C 44 92, 43 84, 40 78" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M40 78 C 37 74, 37 69, 35 64" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M139 105 C 141 89, 128 82, 120 70" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M120 70 C 122 63, 116 56, 117 48" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M120 70 C 112 68, 104 66, 100 57" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M100 57 C 98 52, 101 46, 97 42" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M350 267 C 339 270, 337 286, 325 289" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M325 289 C 319 294, 321 301, 319 307" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M325 289 C 323 297, 320 304, 313 308" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M313 308 C 308 312, 302 309, 298 313" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M313 308 C 314 313, 315 318, 313 323" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M317 229 C 327 237, 339 244, 349 253" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M349 253 C 353 261, 362 264, 369 269" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M369 269 C 371 274, 375 277, 378 281" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M369 269 C 366 274, 368 279, 370 284" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M349 253 C 351 262, 364 262, 367 272" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M-7 194 C 0 188, 11 194, 18 186" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M18 186 C 23 186, 27 182, 32 181" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M18 186 C 25 189, 31 187, 37 183" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M46 213 C 29 213, 21 202, 14 190" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M14 190 C 9 182, 1 178, -8 176" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M-8 176 C -12 171, -16 169, -22 171" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M-8 176 C -13 175, -17 172, -21 171" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M14 190 C 5 193, -1 185, -9 186" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M-9 186 C -14 184, -19 184, -23 182" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M341 292 C 349 285, 361 286, 370 279" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M370 279 C 376 277, 379 269, 386 269" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M370 279 C 378 280, 382 285, 388 289" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M388 289 C 393 288, 398 288, 402 290" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M298 271 C 308 266, 317 260, 329 258" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M329 258 C 336 255, 344 258, 351 258" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M351 258 C 355 260, 361 259, 365 262" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M329 258 C 338 257, 340 245, 349 244" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M349 244 C 354 243, 358 243, 363 244" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M62 160 C 79 155, 81 138, 91 126" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M91 126 C 98 121, 100 113, 101 104" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M101 104 C 102 99, 107 95, 109 91" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M101 104 C 106 103, 110 99, 115 96" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M91 126 C 90 116, 90 105, 88 95" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M88 95 C 93 89, 96 83, 100 76" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M88 95 C 92 90, 98 86, 97 78" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M76 220 C 63 214, 50 208, 35 214" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M35 214 C 27 213, 19 212, 13 204" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M35 214 C 30 206, 22 208, 15 206" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M15 206 C 9 205, 4 205, -0 210" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M15 206 C 11 203, 7 200, 2 200" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M334 308 C 323 302, 315 290, 300 293" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M300 293 C 301 285, 293 281, 292 274" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M292 274 C 289 269, 286 266, 282 263" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M300 293 C 293 291, 286 293, 279 296" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M279 296 C 275 294, 274 288, 268 287" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M278 316 C 287 323, 290 333, 287 345" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M287 345 C 285 353, 291 358, 294 365" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M287 345 C 282 350, 278 356, 275 362" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M378 273 C 370 282, 354 275, 347 287" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M347 287 C 341 283, 332 286, 326 280" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M347 287 C 342 291, 340 297, 337 302" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M353 286 C 343 277, 328 275, 322 261" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M322 261 C 327 253, 317 245, 321 237" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M321 237 C 317 233, 320 227, 315 223" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M321 237 C 326 234, 329 228, 333 225" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M322 261 C 312 260, 303 256, 299 246" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M299 246 C 295 243, 292 240, 291 234" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M59 526 C 67 531, 66 544, 75 548" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M75 548 C 82 548, 85 555, 91 557" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M75 548 C 80 552, 81 561, 89 563" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M89 563 C 91 568, 90 572, 89 577" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M78 618 C 87 619, 90 631, 101 631" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M101 631 C 102 638, 109 639, 113 644" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M49 837 C 55 828, 62 819, 72 814" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M72 814 C 75 808, 81 806, 87 807" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M72 814 C 74 808, 78 803, 84 799" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M8 752 C 14 766, 19 781, 37 785" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M37 785 C 43 794, 46 804, 42 815" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M42 815 C 36 818, 36 826, 30 829" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M42 815 C 41 822, 37 827, 30 829" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M37 785 C 46 787, 56 786, 64 793" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M64 793 C 68 788, 72 786, 79 787" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M64 793 C 71 794, 74 800, 79 804" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M358 830 C 356 817, 345 810, 337 801" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M337 801 C 334 795, 330 789, 326 783" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M326 783 C 325 779, 329 775, 329 770" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M337 801 C 328 802, 323 795, 315 793" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M315 793 C 311 795, 306 795, 301 795" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M289 804 C 276 795, 263 795, 250 804" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M250 804 C 248 815, 233 815, 232 826" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M232 826 C 227 826, 222 829, 217 832" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M250 804 C 242 798, 233 800, 224 799" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M224 799 C 220 804, 212 799, 207 804" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M-36 467 C -42 458, -48 449, -57 443" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M-57 443 C -61 438, -69 442, -73 437" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M-57 443 C -58 436, -64 431, -62 423" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M40 440 C 44 452, 56 456, 64 464" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M64 464 C 69 467, 71 473, 72 479" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M64 464 C 70 463, 76 463, 82 461" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M201 565 C 205 578, 185 583, 189 597" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M189 597 C 182 599, 177 604, 171 607" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M189 597 C 182 601, 180 609, 178 616" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M178 616 C 179 621, 178 626, 179 631" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M178 616 C 178 621, 173 625, 175 631" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M46 291 C 60 303, 74 315, 82 333" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M82 333 C 93 343, 87 359, 95 370" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M95 370 C 99 379, 105 385, 114 388" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M95 370 C 99 379, 98 388, 100 398" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M82 333 C 88 345, 79 357, 82 369" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M82 369 C 74 372, 75 383, 69 388" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M82 369 C 84 378, 95 380, 97 389" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M225 645 C 209 654, 193 645, 176 644" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M176 644 C 170 636, 161 633, 152 629" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M152 629 C 147 625, 149 617, 143 613" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M152 629 C 147 626, 142 624, 139 619" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M176 644 C 167 642, 159 645, 150 645" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M150 645 C 146 649, 139 647, 135 650" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M150 645 C 144 647, 140 643, 135 642" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M159 128 C 152 144, 165 158, 166 174" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M166 174 C 165 184, 152 184, 150 194" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M150 194 C 148 199, 145 202, 144 207" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M166 174 C 161 182, 153 187, 153 198" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M153 198 C 155 204, 154 210, 156 215" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M153 198 C 149 204, 149 211, 151 218" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M372 155 C 371 136, 370 117, 376 98" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M376 98 C 363 92, 351 86, 349 69" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M349 69 C 341 66, 333 63, 324 68" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M349 69 C 351 59, 347 51, 342 42" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M376 98 C 376 86, 372 74, 374 62" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M374 62 C 375 55, 369 49, 373 42" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M374 62 C 373 54, 375 45, 371 37" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M244 695 C 220 695, 207 709, 199 731" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M199 731 C 188 733, 177 723, 166 729" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M166 729 C 160 724, 151 725, 149 716" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M166 729 C 159 729, 155 724, 148 724" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M199 731 C 189 739, 180 747, 174 759" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M174 759 C 167 760, 161 763, 154 761" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M174 759 C 168 764, 166 772, 158 776" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M325 838 C 320 824, 323 807, 313 794" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M313 794 C 313 786, 314 778, 312 771" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M312 771 C 312 765, 312 760, 307 755" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M313 794 C 314 785, 316 776, 322 769" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M322 769 C 326 766, 323 759, 328 755" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M322 769 C 327 764, 323 757, 326 751" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M49 834 C 32 840, 11 834, -4 851" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M-4 851 C -15 856, -24 853, -34 847" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M-34 847 C -40 848, -44 844, -49 841" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M-34 847 C -39 844, -43 840, -47 836" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M-4 851 C -12 841, -24 839, -34 833" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M-34 833 C -42 830, -46 824, -49 816" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M-34 833 C -43 830, -40 818, -48 814" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M126 443 C 124 430, 140 421, 134 406" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M134 406 C 137 399, 135 393, 130 387" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M134 406 C 130 400, 134 394, 133 388" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M153 169 C 138 179, 120 171, 103 175" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M103 175 C 93 170, 89 158, 79 152" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M79 152 C 74 149, 68 150, 62 151" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M79 152 C 76 145, 67 143, 63 136" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M103 175 C 92 172, 83 166, 78 155" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M78 155 C 73 150, 75 143, 73 137" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M78 155 C 77 149, 76 143, 77 138" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M390 300 C 341 236, 379 144, 320 80" stroke="#1a0618" stroke-width="7"/><path d="M390 300 C 341 236, 379 144, 320 80" stroke="#7a3474" stroke-opacity=".75" stroke-width="3.6"/><path d="M390 300 C 341 236, 379 144, 320 80" stroke="#d898d8" stroke-opacity=".35" stroke-width="1"/>
+      <path d="M0 120 C 57 93, 42 168, 76 175" stroke="#1a0618" stroke-width="7"/><path d="M0 120 C 57 93, 42 168, 76 175" stroke="#7a3474" stroke-opacity=".75" stroke-width="3.6"/><path d="M0 120 C 57 93, 42 168, 76 175" stroke="#d898d8" stroke-opacity=".35" stroke-width="1"/>
+      <path d="M0 120 C 67 125, 139 105, 200 155" stroke="#1a0618" stroke-width="7"/><path d="M0 120 C 67 125, 139 105, 200 155" stroke="#7a3474" stroke-opacity=".75" stroke-width="3.6"/><path d="M0 120 C 67 125, 139 105, 200 155" stroke="#d898d8" stroke-opacity=".35" stroke-width="1"/>
+      <path d="M390 300 C 350 267, 317 229, 297 179" stroke="#1a0618" stroke-width="7"/><path d="M390 300 C 350 267, 317 229, 297 179" stroke="#7a3474" stroke-opacity=".75" stroke-width="3.6"/><path d="M390 300 C 350 267, 317 229, 297 179" stroke="#d898d8" stroke-opacity=".35" stroke-width="1"/>
+      <path d="M0 120 C -7 194, 46 213, 102 231" stroke="#1a0618" stroke-width="7"/><path d="M0 120 C -7 194, 46 213, 102 231" stroke="#7a3474" stroke-opacity=".75" stroke-width="3.6"/><path d="M0 120 C -7 194, 46 213, 102 231" stroke="#d898d8" stroke-opacity=".35" stroke-width="1"/>
+      <path d="M390 300 C 341 292, 298 271, 263 232" stroke="#1a0618" stroke-width="7"/><path d="M390 300 C 341 292, 298 271, 263 232" stroke="#7a3474" stroke-opacity=".75" stroke-width="3.6"/><path d="M390 300 C 341 292, 298 271, 263 232" stroke="#d898d8" stroke-opacity=".35" stroke-width="1"/>
+      <path d="M0 120 C 62 160, 76 220, 70 290" stroke="#1a0618" stroke-width="7"/><path d="M0 120 C 62 160, 76 220, 70 290" stroke="#7a3474" stroke-opacity=".75" stroke-width="3.6"/><path d="M0 120 C 62 160, 76 220, 70 290" stroke="#d898d8" stroke-opacity=".35" stroke-width="1"/>
+      <path d="M390 300 C 334 308, 278 316, 222 292" stroke="#1a0618" stroke-width="7"/><path d="M390 300 C 334 308, 278 316, 222 292" stroke="#7a3474" stroke-opacity=".75" stroke-width="3.6"/><path d="M390 300 C 334 308, 278 316, 222 292" stroke="#d898d8" stroke-opacity=".35" stroke-width="1"/>
+      <path d="M390 300 C 378 273, 353 286, 333 282" stroke="#1a0618" stroke-width="7"/><path d="M390 300 C 378 273, 353 286, 333 282" stroke="#7a3474" stroke-opacity=".75" stroke-width="3.6"/><path d="M390 300 C 378 273, 353 286, 333 282" stroke="#d898d8" stroke-opacity=".35" stroke-width="1"/>
+      <path d="M0 520 C 59 526, 78 618, 154 592" stroke="#1a0618" stroke-width="7"/><path d="M0 520 C 59 526, 78 618, 154 592" stroke="#7a3474" stroke-opacity=".75" stroke-width="3.6"/><path d="M0 520 C 59 526, 78 618, 154 592" stroke="#d898d8" stroke-opacity=".35" stroke-width="1"/>
+      <path d="M0 860 C 49 837, 8 752, 80 743" stroke="#1a0618" stroke-width="7"/><path d="M0 860 C 49 837, 8 752, 80 743" stroke="#7a3474" stroke-opacity=".75" stroke-width="3.6"/><path d="M0 860 C 49 837, 8 752, 80 743" stroke="#d898d8" stroke-opacity=".35" stroke-width="1"/>
+      <path d="M390 900 C 358 830, 289 804, 228 765" stroke="#1a0618" stroke-width="7"/><path d="M390 900 C 358 830, 289 804, 228 765" stroke="#7a3474" stroke-opacity=".75" stroke-width="3.6"/><path d="M390 900 C 358 830, 289 804, 228 765" stroke="#d898d8" stroke-opacity=".35" stroke-width="1"/>
+      <path d="M0 520 C -36 467, 40 440, 30 392" stroke="#1a0618" stroke-width="7"/><path d="M0 520 C -36 467, 40 440, 30 392" stroke="#7a3474" stroke-opacity=".75" stroke-width="3.6"/><path d="M0 520 C -36 467, 40 440, 30 392" stroke="#d898d8" stroke-opacity=".35" stroke-width="1"/>
+    </g>
+    <g stroke="#ffd0e0" stroke-width="2.4" stroke-linecap="round" class="vein" style="filter: drop-shadow(0 0 3px #ff9ab0)">
+      <path d="M390 300 C 341 236, 379 144, 320 80" style="animation-delay: -0.0s"/>
+      <path d="M0 120 C 57 93, 42 168, 76 175" style="animation-delay: -1.3s"/>
+      <path d="M0 120 C 67 125, 139 105, 200 155" style="animation-delay: -2.6s"/>
+      <path d="M390 300 C 350 267, 317 229, 297 179" style="animation-delay: -3.9s"/>
+      <path d="M0 120 C -7 194, 46 213, 102 231" style="animation-delay: -5.2s"/>
+      <path d="M390 300 C 341 292, 298 271, 263 232" style="animation-delay: -6.5s"/>
+      <path d="M0 120 C 62 160, 76 220, 70 290" style="animation-delay: -7.8s"/>
+      <path d="M390 300 C 334 308, 278 316, 222 292" style="animation-delay: -9.1s"/>
+      <path d="M390 300 C 378 273, 353 286, 333 282" style="animation-delay: -10.4s"/>
+      <path d="M0 520 C 59 526, 78 618, 154 592" style="animation-delay: -11.7s"/>
+      <path d="M0 860 C 49 837, 8 752, 80 743" style="animation-delay: -13.0s"/>
+      <path d="M390 900 C 358 830, 289 804, 228 765" style="animation-delay: -14.3s"/>
+      <path d="M0 520 C -36 467, 40 440, 30 392" style="animation-delay: -15.6s"/>
+    </g>
+    <rect width="390" height="900" filter="url(#skin)" opacity=".16"/>
+  </svg>
+
+
+  <svg class="breathe" aria-hidden="true" width="390" height="200" viewBox="0 0 390 200" style="position: absolute; left: 0; top: -14px; pointer-events: none; overflow: visible">
+    <path style="filter: url(#wet)" d="M-10 150 C 0 40, 110 -6, 195 -6 C 285 -6, 390 40, 400 150 Q 385 168, 370 152 Q 352 172, 334 154 Q 314 174, 294 156 Q 272 176, 250 158 Q 228 178, 206 160 Q 184 178, 162 160 Q 140 176, 118 158 Q 96 174, 76 156 Q 56 172, 38 154 Q 20 168, 4 152 Z" fill="url(#bellFill)" stroke="#c9ceff" stroke-opacity=".45" stroke-width="1.2"/>
+    <g stroke="#dfe2ff" stroke-opacity=".16" stroke-width="1">
+      <path d="M195 0 L 20 150"/><path d="M195 0 L 60 156"/><path d="M195 0 L 100 158"/><path d="M195 0 L 140 160"/><path d="M195 0 L 175 162"/><path d="M195 0 L 210 162"/><path d="M195 0 L 248 160"/><path d="M195 0 L 288 158"/><path d="M195 0 L 328 156"/><path d="M195 0 L 368 152"/>
+    </g>
+    <circle class="rim" cx="20" cy="160" r="2.2" fill="#ffe0e8" style="filter: drop-shadow(0 0 4px #ff9ab0); animation-delay: -0s"/><circle class="rim" cx="57" cy="163" r="1.8" fill="#ffe0e8" style="filter: drop-shadow(0 0 4px #ff9ab0); animation-delay: -1.2s"/><circle class="rim" cx="97" cy="166" r="2.4" fill="#ffe0e8" style="filter: drop-shadow(0 0 4px #ff9ab0); animation-delay: -0.4s"/><circle class="rim" cx="140" cy="168" r="1.8" fill="#ffe0e8" style="filter: drop-shadow(0 0 4px #ff9ab0); animation-delay: -2s"/><circle class="rim" cx="184" cy="170" r="2.2" fill="#ffe0e8" style="filter: drop-shadow(0 0 4px #ff9ab0); animation-delay: -0.8s"/><circle class="rim" cx="228" cy="170" r="1.8" fill="#ffe0e8" style="filter: drop-shadow(0 0 4px #ff9ab0); animation-delay: -1.6s"/><circle class="rim" cx="272" cy="168" r="2.4" fill="#ffe0e8" style="filter: drop-shadow(0 0 4px #ff9ab0); animation-delay: -2.4s"/><circle class="rim" cx="314" cy="164" r="1.8" fill="#ffe0e8" style="filter: drop-shadow(0 0 4px #ff9ab0); animation-delay: -0.2s"/><circle class="rim" cx="352" cy="162" r="2.2" fill="#ffe0e8" style="filter: drop-shadow(0 0 4px #ff9ab0); animation-delay: -1.4s"/><circle class="rim" cx="380" cy="156" r="1.6" fill="#ffe0e8" style="filter: drop-shadow(0 0 4px #ff9ab0); animation-delay: -2.8s"/>
+    <path d="M40 60 C 90 20, 160 12, 210 16" stroke="#ffffff" stroke-opacity=".5" stroke-width="5" stroke-linecap="round" fill="none" style="filter: blur(2px)"/>
+  </svg>
+
+  <svg class="sway" aria-hidden="true" width="390" height="140" viewBox="0 0 390 140" fill="none" style="position: absolute; left: 0; top: 136px; pointer-events: none">
+    <g stroke="#a9b1ff" stroke-opacity=".35" stroke-width="2" stroke-linecap="round">
+      <path d="M78 0 C 70 20, 86 30, 78 50"/><path d="M198 0 C 206 14, 190 22, 198 36"/><path d="M80 10 C 90 34, 74 54, 82 74"/><path d="M276 0 C 268 22, 284 30, 276 54"/><path d="M144 0 C 150 30, 136 52, 142 84"/><path d="M330 0 C 322 24, 340 40, 332 70"/>
+    </g>
+  </svg>
+
+  <span class="spore" aria-hidden="true" style="left: 34px; top: 430px; width: 3px; height: 3px; background: #ffffff; box-shadow: 0 0 6px #ffc2cc; animation-delay: -2s"></span>
+  <span class="spore" aria-hidden="true" style="left: 362px; top: 300px; width: 4px; height: 4px; background: #c9ceff; box-shadow: 0 0 8px #9aa3ff; animation-delay: -7s"></span>
+  <span class="spore" aria-hidden="true" style="left: 210px; top: 800px; width: 2px; height: 2px; background: #ffffff; animation-delay: -10s"></span>
+  <span class="spore" aria-hidden="true" style="left: 120px; top: 300px; width: 2px; height: 2px; background: #ffffff; animation-delay: -5s"></span>
+  <span class="spore" aria-hidden="true" style="left: 280px; top: 640px; width: 3px; height: 3px; background: #ffd0da; box-shadow: 0 0 6px #ff9ab0; animation-delay: -12s"></span>
+
+  <div class="goo" aria-hidden="true" style="position: absolute; inset: 0; pointer-events: none; opacity: .62">
+    <div class="flesh" style="position: absolute; left: 30px; top: 152px; width: 92px; height: 46px; border-radius: 50%"></div><div class="flesh" style="position: absolute; left: 154px; top: 140px; width: 92px; height: 40px; border-radius: 50%"></div><div class="flesh" style="position: absolute; left: 242px; top: 160px; width: 110px; height: 42px; border-radius: 50%"></div><div class="flesh" style="position: absolute; left: 60px; top: 212px; width: 84px; height: 40px; border-radius: 50%"></div><div class="flesh" style="position: absolute; left: 162px; top: 192px; width: 54px; height: 42px; border-radius: 50%"></div><div class="flesh" style="position: absolute; left: 228px; top: 216px; width: 70px; height: 34px; border-radius: 50%"></div><div class="flesh" style="position: absolute; left: 70px; top: 130px; width: 12px; height: 40px; border-radius: 50%"></div><div class="flesh" style="position: absolute; left: 196px; top: 128px; width: 12px; height: 24px; border-radius: 50%"></div><div class="flesh" style="position: absolute; left: 292px; top: 130px; width: 12px; height: 40px; border-radius: 50%"></div><div class="flesh" style="position: absolute; left: 98px; top: 160px; width: 12px; height: 60px; border-radius: 50%"></div><div class="flesh" style="position: absolute; left: 184px; top: 150px; width: 12px; height: 44px; border-radius: 50%"></div><div class="flesh" style="position: absolute; left: 260px; top: 160px; width: 12px; height: 60px; border-radius: 50%"></div>
+    <div class="flesh" style="position: absolute; left: 28px; top: 470px; width: 248px; height: 236px; border-radius: 50%"></div>
+    <div class="flesh" style="position: absolute; left: 30px; top: 704px; width: 106px; height: 70px; border-radius: 50%"></div>
+    <div class="flesh" style="position: absolute; left: 110px; top: 690px; width: 60px; height: 40px; border-radius: 50%"></div>
+    <div class="flesh" style="position: absolute; left: 14px; top: 262px; width: 100px; height: 58px; border-radius: 50%"></div>
+    <div class="flesh" style="position: absolute; left: 100px; top: 280px; width: 90px; height: 28px; border-radius: 50%"></div>
+    <div class="flesh" style="position: absolute; left: 166px; top: 264px; width: 112px; height: 56px; border-radius: 50%"></div>
+    <div class="flesh" style="position: absolute; left: 262px; top: 260px; width: 110px; height: 48px; border-radius: 50%"></div>
+  </div>
+
+  <svg aria-hidden="true" width="390" height="900" viewBox="0 0 390 900" fill="none" style="position: absolute; left: 0; top: 0; pointer-events: none">
+    <g class="swayB" style="transform-origin: 0 380px; filter: url(#wet)">
+      <path d="M-20 396 C 40 404, 70 344, 130 356 S 220 404, 268 356 S 312 318, 318 334" stroke="#3e0c22" stroke-width="32" stroke-linecap="round"/>
+      <path d="M-20 392 C 40 400, 70 340, 130 352 S 220 400, 268 352 S 312 314, 318 330" stroke="url(#tent)" stroke-width="26" stroke-linecap="round"/>
+      <path d="M318 332 C 324 346, 312 360, 302 352 C 294 346, 300 336, 306 340" stroke="#b8505c" stroke-width="10" stroke-linecap="round"/>
+      <path d="M-20 386 C 40 394, 70 334, 130 346 S 220 394, 268 346" stroke="#ffe0d8" stroke-opacity=".45" stroke-width="4" stroke-linecap="round" style="filter: blur(1.5px)"/>
+      <circle cx="12" cy="404" r="4" fill="#f2b0a8" stroke="#7a2440" stroke-width="1.5"/><circle cx="12" cy="404.6" r="1.8" fill="#7a2440"/><circle cx="76" cy="384" r="3.5" fill="#f2b0a8" stroke="#7a2440" stroke-width="1.5"/><circle cx="76" cy="384.6" r="1.6" fill="#7a2440"/><circle cx="166" cy="388" r="3.5" fill="#f2b0a8" stroke="#7a2440" stroke-width="1.5"/><circle cx="166" cy="388.6" r="1.6" fill="#7a2440"/><circle cx="228" cy="392" r="3" fill="#f2b0a8" stroke="#7a2440" stroke-width="1.5"/><circle cx="228" cy="392.6" r="1.4" fill="#7a2440"/><circle cx="296" cy="340" r="2.5" fill="#f2b0a8" stroke="#7a2440" stroke-width="1.5"/><circle cx="296" cy="340.6" r="1.1" fill="#7a2440"/>
+    </g>
+    <g style="filter: url(#wet)"><path d="M300 850 C 386 760, 286 700, 326 610 C 360 535, 298 500, 318 466" stroke="#3e0c22" stroke-width="62" stroke-linecap="round"/>
+    <path d="M300 850 C 386 760, 286 700, 326 610 C 360 535, 298 500, 318 466" transform="translate(-3 -2)" stroke="url(#tent)" stroke-width="54" stroke-linecap="round"/>
+    <path d="M316 470 C 300 470, 286 452, 296 436 C 306 422, 326 430, 322 444 C 320 452, 310 452, 310 446" stroke="#c45a62" stroke-width="16" stroke-linecap="round"/></g>
+    <path d="M288 840 C 372 756, 272 700, 312 610 C 344 540, 286 506, 304 476" stroke="#ffe0d8" stroke-opacity=".4" stroke-width="6" stroke-linecap="round" style="filter: blur(2px)"/>
+    <circle cx="358" cy="596" r="5" fill="#f2b0a8" stroke="#7a2440" stroke-width="1.5"/><circle cx="358" cy="596.6" r="2.2" fill="#7a2440"/><circle cx="344" cy="664" r="5.5" fill="#f2b0a8" stroke="#7a2440" stroke-width="1.5"/><circle cx="344" cy="664.6" r="2.5" fill="#7a2440"/><circle cx="364" cy="784" r="5" fill="#f2b0a8" stroke="#7a2440" stroke-width="1.5"/><circle cx="364" cy="784.6" r="2.2" fill="#7a2440"/><circle cx="350" cy="826" r="4.5" fill="#f2b0a8" stroke="#7a2440" stroke-width="1.5"/><circle cx="350" cy="826.6" r="2.0" fill="#7a2440"/><circle cx="352" cy="516" r="4" fill="#f2b0a8" stroke="#7a2440" stroke-width="1.5"/><circle cx="352" cy="516.6" r="1.8" fill="#7a2440"/>
+  </svg>
+
+  <a href="#setup" data-view="setup" aria-label="TV name, tap to switch TV" style="position: absolute; left: 70px; top: 38px; display: flex; align-items: center; gap: 8px; text-decoration: none; color: #ffffff; font-size: 14px; font-weight: 700; text-shadow: 0 0 10px rgba(190,200,255,.9)">
+    <span style="width: 8px; height: 8px; border-radius: 50%; background: #ffd0da; box-shadow: 0 0 10px 3px #ff9ab0"></span>
+    <span class="tvName">My LG TV</span>
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+  </a>
+
+  <button class="wet core speck" aria-label="Power" data-cmd="power" style="left: 290px; top: 52px; width: 60px; height: 56px; border-radius: 52% 48% 46% 54% / 50% 54% 46% 50%">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M12 3v9"/><path d="M6.3 6.8a8 8 0 1 0 11.4 0"/></svg>
+  </button>
+
+  <button class="wet" data-app="netflix" aria-haspopup="menu" aria-expanded="false" style="left: 24px; top: 150px; width: 104px; height: 50px; border-radius: 40% 46% 52% 48% / 50% 46% 58% 54%; --glow: #ff9ab0">Netflix<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M4 20 C 4 8, 20 6, 18 14 C 17 18, 11 18, 11 14 C 11 11, 15 11, 15 13"/></svg></button>
+  <button class="wet" data-app="youtube" aria-haspopup="menu" aria-expanded="false" style="left: 150px; top: 132px; width: 100px; height: 46px; border-radius: 46% 40% 50% 44% / 54% 50% 52% 48%; --glow: #ff9ab0">YouTube<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M4 20 C 4 8, 20 6, 18 14 C 17 18, 11 18, 11 14 C 11 11, 15 11, 15 13"/></svg></button>
+  <button class="wet" data-app="prime" aria-haspopup="menu" aria-expanded="false" style="left: 236px; top: 154px; width: 122px; height: 50px; border-radius: 44% 50% 46% 52% / 52% 56% 46% 50%; --glow: #9aa3ff">Prime Video<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M4 20 C 4 8, 20 6, 18 14 C 17 18, 11 18, 11 14 C 11 11, 15 11, 15 13"/></svg></button>
+  <button class="wet" data-app="disney" aria-haspopup="menu" aria-expanded="false" style="left: 54px; top: 208px; width: 96px; height: 46px; border-radius: 50% 44% 48% 52% / 48% 54% 50% 56%; --glow: #9aa3ff">Disney+<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M4 20 C 4 8, 20 6, 18 14 C 17 18, 11 18, 11 14 C 11 11, 15 11, 15 13"/></svg></button>
+  <button class="wet" data-app="hulu" style="left: 158px; top: 186px; width: 62px; height: 50px; border-radius: 50% 46% 54% 48% / 52% 48% 56% 50%; --glow: #b9a8ff">Hulu</button>
+  <button class="wet" data-app="live" style="left: 222px; top: 212px; width: 82px; height: 40px; border-radius: 44% 52% 48% 50% / 50% 46% 54% 50%; --glow: #b9a8ff">Live TV</button>
+
+
+  <button class="wet" data-btn="HOME" style="left: 300px; top: 252px; width: 66px; height: 60px; flex-direction: column; gap: 1px; font-size: 12px; border-radius: 58% 42% 50% 50% / 46% 54% 46% 54%"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg>Home</button>
+  <button class="wet" data-cmd="input" style="left: 26px; top: 266px; width: 88px; height: 48px; border-radius: 30px 20px 32px 22px / 24px 28px 20px 26px; --glow: #b9a8ff"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="12" rx="4"/><path d="M12 17v4M8 21h8"/></svg>Input</button>
+  <button class="wet" data-cmd="settings" style="left: 172px; top: 270px; width: 100px; height: 44px; border-radius: 20px 28px 22px 30px / 26px 20px 28px 22px; --glow: #b9a8ff"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></svg>Settings</button>
+
+  <button class="wet sucker" aria-label="Rewind" data-cmd="rewind" style="left: 34px; top: 368px; width: 46px; height: 46px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 19l-8-7 8-7zM21 19l-8-7 8-7z"/></svg></button>
+  <button class="wet sucker" aria-label="Play" data-cmd="play" style="left: 100px; top: 322px; width: 58px; height: 58px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4l13 8-13 8z"/></svg></button>
+  <button class="wet sucker" aria-label="Pause" data-cmd="pause" style="left: 184px; top: 356px; width: 52px; height: 52px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M8 5v14M16 5v14"/></svg></button>
+  <button class="wet sucker" aria-label="Fast forward" data-cmd="fastForward" style="left: 246px; top: 324px; width: 44px; height: 44px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 19l8-7-8-7zM3 19l8-7-8-7z"/></svg></button>
+
+  <button class="wet sucker" aria-label="Up" data-hold="UP" style="left: 120px; top: 478px; width: 60px; height: 60px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 15l6-6 6 6"/></svg></button>
+  <button class="wet sucker" aria-label="Down" data-hold="DOWN" style="left: 128px; top: 640px; width: 56px; height: 56px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+  <button class="wet sucker" aria-label="Left" data-hold="LEFT" style="left: 36px; top: 560px; width: 58px; height: 58px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+  <button class="wet sucker" aria-label="Right" data-hold="RIGHT" style="left: 212px; top: 566px; width: 54px; height: 54px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+  <button class="wet core speck" data-btn="ENTER" style="left: 100px; top: 540px; width: 108px; height: 104px; border-radius: 54% 46% 50% 50% / 46% 52% 48% 54%; font-size: 22px; text-shadow: 0 0 10px rgba(255,220,225,.9), 0 1px 3px rgba(90,10,30,.8)">OK</button>
+
+  <button class="wet sucker" aria-label="Volume up, hold to keep raising" data-hold="volUp" style="left: 298px; top: 496px; width: 64px; height: 64px; font-size: 26px">+</button>
+  <span class="vdot" aria-hidden="true" style="left: 327px; top: 593px"></span>
+  <span class="vdot" aria-hidden="true" style="left: 320px; top: 611px"></span>
+  <span class="vdot" aria-hidden="true" style="left: 314px; top: 629px"></span>
+  <span class="vdot" aria-hidden="true" style="left: 311px; top: 647px"></span>
+  <span class="vdot" aria-hidden="true" style="left: 311px; top: 665px"></span>
+  <span class="vdot" aria-hidden="true" style="left: 314px; top: 683px"></span>
+
+  <span aria-live="polite" id="volWrap" style="position: absolute; left: 310px; top: 568px; width: 48px; text-align: center; font-size: 14px; font-weight: 700; color: #3e0c22; text-shadow: 0 1px 0 rgba(255,220,220,.6)"><b id="volLabel" style="font-weight:700">--</b></span>
+  <button class="wet sucker" aria-label="Volume down, hold to keep lowering" data-hold="volDown" style="left: 300px; top: 699px; width: 60px; height: 60px; font-size: 28px">−</button>
+
+  <button class="wet" data-btn="BACK" style="left: 34px; top: 714px; width: 92px; height: 58px; font-size: 13px; border-radius: 30px 22px 34px 20px / 28px 32px 22px 30px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 14L4 9l5-5"/><path d="M4 9h11a5 5 0 0 1 0 10h-3"/></svg>Back</button>
+  <button class="wet" data-cmd="mute" id="muteBtn" aria-pressed="false" style="left: 186px; top: 738px; width: 84px; height: 54px; font-size: 13px; border-radius: 26px 34px 22px 30px / 30px 24px 32px 26px; --glow: #ff9ab0"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6 9H3v6h3l5 4z"/><path d="M22 9l-6 6M16 9l6 6"/></svg>Mute</button>
+
+  <div id="menuLayer"></div>
+
+
+
+</section>
+<section class="view" id="v-touch" style="position: relative; overflow: hidden; width: 390px; height: 900px; box-sizing: border-box; background: linear-gradient(170deg, rgba(120,130,255,.10) 0%, transparent 30%), linear-gradient(190deg, transparent 20%, rgba(120,130,255,.06) 32%, transparent 44%), radial-gradient(60% 40% at 40% 66%, rgba(140,60,120,.22), transparent 70%), linear-gradient(180deg, #0c0828 0%, #08041a 50%, #04020c 100%); color: #e6e8ff; font-family: Quicksand, system-ui, sans-serif">
+
+  
+  <svg aria-hidden="true" width="390" height="900" viewBox="0 0 390 900" fill="none" style="position: absolute; left: 0; top: 0; pointer-events: none">
+    <defs>
+      <filter id="skin" filterUnits="userSpaceOnUse" x="0" y="0" width="390" height="900">
+        <feTurbulence type="fractalNoise" baseFrequency="0.028 0.022" numOctaves="3" seed="11" result="n">
+          <animate attributeName="baseFrequency" dur="22s" values="0.028 0.022;0.031 0.025;0.028 0.022" repeatCount="indefinite"/>
+        </feTurbulence>
+        <feSpecularLighting in="n" surfaceScale="3.2" specularConstant=".9" specularExponent="16" lighting-color="#c8ccff" result="s"><fePointLight x="150" y="200" z="260"/></feSpecularLighting>
+        <feColorMatrix in="s" type="matrix" values="0 0 0 0 .78  0 0 0 0 .8  0 0 0 0 1  .33 .33 .33 0 -.18"/>
+      </filter>
+      <filter id="cells" filterUnits="userSpaceOnUse" x="0" y="0" width="390" height="900">
+        <feTurbulence type="turbulence" baseFrequency="0.045" numOctaves="1" seed="3" result="t"/>
+        <feColorMatrix in="t" type="matrix" values="0 0 0 0 .55  0 0 0 0 .3  0 0 0 0 .75  -1.4 0 0 0 .55"/>
+      </filter>
+      <radialGradient id="wallL" cx="0" cy=".5" r="1"><stop offset="0" stop-color="#2a0a2c"/><stop offset=".6" stop-color="#14061e" stop-opacity=".6"/><stop offset="1" stop-color="#14061e" stop-opacity="0"/></radialGradient>
+      <radialGradient id="wallR" cx="1" cy=".5" r="1"><stop offset="0" stop-color="#1c0a34"/><stop offset=".6" stop-color="#0e0620" stop-opacity=".6"/><stop offset="1" stop-color="#0e0620" stop-opacity="0"/></radialGradient>
+    </defs>
+    <rect width="390" height="900" filter="url(#cells)" opacity=".2"/>
+    <ellipse cx="185" cy="230" rx="170" ry="136" fill="#7f88ff" opacity="0.22" style="filter: blur(30px)"/>
+    <ellipse cx="185" cy="300" rx="80" ry="64" fill="#ff6f9a" opacity="0.15" style="filter: blur(30px)"/>
+    <ellipse cx="200" cy="720" rx="120" ry="96" fill="#ff6f9a" opacity="0.16" style="filter: blur(30px)"/>
+    <path d="M0 0 L 34 0 C 18 120, 46 220, 22 330 S 40 560, 18 700 S 36 860, 26 900 L 0 900 Z" fill="url(#wallL)"/>
+    <path d="M390 0 L 356 0 C 372 140, 344 260, 368 380 S 350 600, 372 720 S 354 860, 364 900 L 390 900 Z" fill="url(#wallR)"/>
+    <path d="M34 0 C 18 120, 46 220, 22 330 S 40 560, 18 700 S 36 860, 26 900" stroke="#ff9ab0" stroke-opacity=".22" stroke-width="1.4"/>
+    <path d="M356 0 C 372 140, 344 260, 368 380 S 350 600, 372 720 S 354 860, 364 900" stroke="#9aa3ff" stroke-opacity=".25" stroke-width="1.4"/>
+    <g stroke-linecap="round">
+      <path d="M68 296 C 72 287, 72 277, 70 267" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M70 267 C 75 264, 79 259, 78 252" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M70 267 C 73 261, 66 256, 69 251" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M105 208 C 103 220, 90 228, 92 243" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M92 243 C 84 242, 82 253, 73 252" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M73 252 C 69 248, 64 249, 59 251" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M92 243 C 93 250, 88 255, 86 261" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M86 261 C 85 266, 80 269, 77 272" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M23 338 C 22 348, 24 358, 23 368" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M23 368 C 20 373, 19 378, 13 380" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M23 368 C 27 374, 31 380, 39 382" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M4 397 C 9 407, 10 417, 10 429" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M10 429 C 5 434, 7 443, -1 447" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M10 429 C 12 436, 10 443, 9 451" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M364 272 C 372 281, 377 292, 372 305" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M372 305 C 366 310, 367 316, 365 322" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M372 305 C 379 306, 382 313, 387 317" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M298 331 C 299 344, 295 356, 297 370" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M297 370 C 293 380, 295 389, 301 398" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M301 398 C 305 401, 307 406, 307 411" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M301 398 C 302 403, 298 408, 299 413" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M297 370 C 298 378, 306 380, 312 385" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M338 781 C 329 791, 334 807, 324 818" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M324 818 C 319 825, 323 832, 323 840" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M324 818 C 318 824, 309 821, 303 827" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M303 827 C 298 827, 293 827, 290 822" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M319 694 C 323 708, 333 714, 347 717" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M347 717 C 353 723, 362 723, 370 724" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M370 724 C 376 726, 380 729, 382 735" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M347 717 C 355 720, 357 729, 362 735" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M362 735 C 368 737, 368 745, 374 747" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M56 653 C 49 659, 50 671, 40 675" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M40 675 C 36 678, 31 680, 29 685" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M40 675 C 35 676, 30 677, 24 677" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M109 652 C 103 639, 110 626, 106 612" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M106 612 C 100 604, 103 595, 106 586" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M106 586 C 108 581, 110 576, 111 571" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M106 586 C 108 580, 112 577, 117 574" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M106 612 C 100 607, 93 602, 90 593" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M90 593 C 94 588, 93 582, 92 577" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M42 648 C 47 662, 66 662, 70 677" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M70 677 C 79 672, 89 675, 99 674" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M99 674 C 102 670, 106 667, 112 667" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M99 674 C 104 674, 109 673, 112 668" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M70 677 C 77 679, 83 683, 91 679" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M91 679 C 96 678, 100 682, 105 681" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M23 708 C 23 721, 31 728, 42 733" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M42 733 C 49 730, 56 735, 63 734" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M63 734 C 65 740, 68 744, 74 745" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M63 734 C 69 733, 72 739, 78 737" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M42 733 C 45 740, 49 746, 54 751" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M54 751 C 58 755, 62 757, 67 760" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M74 835 C 86 841, 95 825, 107 830" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M107 830 C 116 829, 122 822, 131 824" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M131 824 C 136 826, 140 827, 146 826" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M107 830 C 113 827, 119 825, 122 818" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M182 792 C 167 789, 153 801, 137 796" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M137 796 C 128 791, 116 790, 112 778" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M112 778 C 106 775, 108 766, 101 763" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M112 778 C 105 778, 99 777, 94 771" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M137 796 C 129 788, 116 797, 107 788" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M107 788 C 101 788, 97 785, 92 783" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M107 788 C 103 783, 95 787, 92 781" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M354 795 C 360 784, 367 773, 377 764" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M377 764 C 378 758, 374 751, 376 744" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M377 764 C 383 758, 391 759, 399 762" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M399 762 C 405 762, 409 758, 413 755" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M399 762 C 404 760, 406 754, 412 754" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M319 729 C 322 721, 317 710, 326 703" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M326 703 C 330 700, 333 695, 338 692" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M349 817 C 358 813, 367 809, 377 815" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M377 815 C 384 816, 389 812, 393 807" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M377 815 C 380 820, 387 818, 391 821" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M371 739 C 359 746, 345 747, 332 752" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M332 752 C 325 756, 318 760, 310 760" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M310 760 C 304 761, 299 760, 295 756" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M332 752 C 328 760, 326 768, 320 775" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M320 775 C 322 781, 321 786, 324 792" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M56 122 C 45 131, 54 149, 42 158" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M42 158 C 35 163, 31 173, 21 176" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M21 176 C 16 180, 9 181, 4 186" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M21 176 C 16 179, 11 177, 6 175" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M42 158 C 35 162, 38 171, 34 177" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M117 195 C 114 179, 99 167, 98 150" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M98 150 C 101 139, 111 132, 109 119" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M109 119 C 108 113, 108 108, 106 102" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M109 119 C 105 112, 106 105, 110 98" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M98 150 C 90 141, 83 130, 68 131" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M68 131 C 60 134, 52 134, 45 129" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M68 131 C 61 125, 52 129, 44 126" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M195 148 C 201 165, 188 187, 205 203" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M205 203 C 193 209, 193 223, 183 231" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M183 231 C 178 234, 174 240, 166 238" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M183 231 C 174 228, 168 237, 160 238" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M205 203 C 203 216, 208 227, 212 239" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M212 239 C 219 242, 222 247, 222 255" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M212 239 C 207 245, 203 251, 204 260" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M98 262 C 111 266, 119 275, 123 287" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M123 287 C 128 296, 136 296, 144 298" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M144 298 C 149 299, 149 306, 154 308" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M123 287 C 129 291, 137 293, 142 299" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M349 746 C 349 734, 346 722, 355 711" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M355 711 C 349 707, 353 699, 349 694" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M355 711 C 355 703, 359 697, 365 692" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M368 179 C 363 166, 379 158, 376 145" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M376 145 C 383 142, 383 133, 389 129" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M389 129 C 393 126, 396 122, 396 117" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M389 129 C 393 126, 390 119, 395 116" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M376 145 C 369 139, 365 133, 364 124" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M364 124 C 367 119, 365 114, 362 110" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M7 625 C 12 612, 19 600, 22 586" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M22 586 C 30 579, 40 581, 48 577" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M48 577 C 56 576, 58 569, 64 565" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M48 577 C 52 581, 58 579, 63 581" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M22 586 C 23 577, 22 567, 25 558" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M25 558 C 27 550, 35 550, 40 546" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M25 558 C 29 553, 31 546, 34 541" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M46 166 C 59 174, 73 168, 87 174" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M87 174 C 95 173, 103 170, 110 167" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M110 167 C 115 166, 120 166, 125 163" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M110 167 C 116 163, 122 165, 128 167" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M87 174 C 98 170, 107 175, 114 184" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M114 184 C 117 190, 125 187, 127 193" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M114 184 C 118 190, 125 187, 130 190" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M211 251 C 220 263, 234 268, 244 280" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M244 280 C 242 290, 242 300, 246 310" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M246 310 C 239 313, 240 321, 234 325" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M246 310 C 245 316, 248 323, 243 328" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M244 280 C 244 290, 256 293, 257 303" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M257 303 C 258 308, 263 311, 265 316" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M103 749 C 108 734, 112 718, 130 711" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M130 711 C 140 712, 142 700, 151 699" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M151 699 C 156 697, 156 691, 162 689" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M130 711 C 139 703, 137 691, 142 681" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M142 681 C 147 677, 153 674, 156 668" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M142 681 C 147 678, 152 675, 157 672" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M0 300 C 68 296, 105 208, 185 230" stroke="#1a0618" stroke-width="7"/><path d="M0 300 C 68 296, 105 208, 185 230" stroke="#7a3474" stroke-opacity=".75" stroke-width="3.6"/><path d="M0 300 C 68 296, 105 208, 185 230" stroke="#d898d8" stroke-opacity=".35" stroke-width="1"/>
+      <path d="M0 300 C 23 338, 4 397, 60 420" stroke="#1a0618" stroke-width="7"/><path d="M0 300 C 23 338, 4 397, 60 420" stroke="#7a3474" stroke-opacity=".75" stroke-width="3.6"/><path d="M0 300 C 23 338, 4 397, 60 420" stroke="#d898d8" stroke-opacity=".35" stroke-width="1"/>
+      <path d="M390 200 C 364 272, 298 331, 320 420" stroke="#1a0618" stroke-width="7"/><path d="M390 200 C 364 272, 298 331, 320 420" stroke="#7a3474" stroke-opacity=".75" stroke-width="3.6"/><path d="M390 200 C 364 272, 298 331, 320 420" stroke="#d898d8" stroke-opacity=".35" stroke-width="1"/>
+      <path d="M390 860 C 338 781, 319 694, 329 597" stroke="#1a0618" stroke-width="7"/><path d="M390 860 C 338 781, 319 694, 329 597" stroke="#7a3474" stroke-opacity=".75" stroke-width="3.6"/><path d="M390 860 C 338 781, 319 694, 329 597" stroke="#d898d8" stroke-opacity=".35" stroke-width="1"/>
+      <path d="M0 640 C 56 653, 109 652, 148 598" stroke="#1a0618" stroke-width="7"/><path d="M0 640 C 56 653, 109 652, 148 598" stroke="#7a3474" stroke-opacity=".75" stroke-width="3.6"/><path d="M0 640 C 56 653, 109 652, 148 598" stroke="#d898d8" stroke-opacity=".35" stroke-width="1"/>
+      <path d="M0 640 C 42 648, 23 708, 65 717" stroke="#1a0618" stroke-width="7"/><path d="M0 640 C 42 648, 23 708, 65 717" stroke="#7a3474" stroke-opacity=".75" stroke-width="3.6"/><path d="M0 640 C 42 648, 23 708, 65 717" stroke="#d898d8" stroke-opacity=".35" stroke-width="1"/>
+      <path d="M120 900 C 74 835, 182 792, 144 726" stroke="#1a0618" stroke-width="7"/><path d="M120 900 C 74 835, 182 792, 144 726" stroke="#7a3474" stroke-opacity=".75" stroke-width="3.6"/><path d="M120 900 C 74 835, 182 792, 144 726" stroke="#d898d8" stroke-opacity=".35" stroke-width="1"/>
+      <path d="M390 860 C 354 795, 319 729, 228 726" stroke="#1a0618" stroke-width="7"/><path d="M390 860 C 354 795, 319 729, 228 726" stroke="#7a3474" stroke-opacity=".75" stroke-width="3.6"/><path d="M390 860 C 354 795, 319 729, 228 726" stroke="#d898d8" stroke-opacity=".35" stroke-width="1"/>
+      <path d="M390 860 C 349 817, 371 739, 307 707" stroke="#1a0618" stroke-width="7"/><path d="M390 860 C 349 817, 371 739, 307 707" stroke="#7a3474" stroke-opacity=".75" stroke-width="3.6"/><path d="M390 860 C 349 817, 371 739, 307 707" stroke="#d898d8" stroke-opacity=".35" stroke-width="1"/>
+    </g>
+    <g stroke="#ffd0e0" stroke-width="2.4" stroke-linecap="round" class="vein" style="filter: drop-shadow(0 0 3px #ff9ab0)">
+      <path d="M0 300 C 68 296, 105 208, 185 230" style="animation-delay: -0.0s"/>
+      <path d="M0 300 C 23 338, 4 397, 60 420" style="animation-delay: -1.3s"/>
+      <path d="M390 200 C 364 272, 298 331, 320 420" style="animation-delay: -2.6s"/>
+      <path d="M390 860 C 338 781, 319 694, 329 597" style="animation-delay: -3.9s"/>
+      <path d="M0 640 C 56 653, 109 652, 148 598" style="animation-delay: -5.2s"/>
+      <path d="M0 640 C 42 648, 23 708, 65 717" style="animation-delay: -6.5s"/>
+      <path d="M120 900 C 74 835, 182 792, 144 726" style="animation-delay: -7.8s"/>
+      <path d="M390 860 C 354 795, 319 729, 228 726" style="animation-delay: -9.1s"/>
+      <path d="M390 860 C 349 817, 371 739, 307 707" style="animation-delay: -10.4s"/>
+    </g>
+    <rect width="390" height="900" filter="url(#skin)" opacity=".16"/>
+  </svg>
+
+
+  <svg class="sway" aria-hidden="true" width="390" height="200" viewBox="0 0 390 200" fill="none" style="position: absolute; left: 0; top: 404px; pointer-events: none">
+    <g stroke="#a9b1ff" stroke-opacity=".38" stroke-width="2" stroke-linecap="round">
+      <path d="M60 0 C 50 40, 74 70, 60 120"/><path d="M120 0 C 128 30, 108 60, 118 100"/><path d="M196 0 C 186 50, 208 90, 194 150"/><path d="M262 0 C 272 36, 250 66, 262 110"/><path d="M326 0 C 318 44, 340 76, 326 128"/><path d="M90 0 C 96 60, 80 110, 92 170"/><path d="M296 0 C 290 60, 306 110, 296 160"/>
+    </g>
+  </svg>
+  <span class="spore" aria-hidden="true" style="left: 34px; top: 470px; width: 3px; height: 3px; background: #ffffff; box-shadow: 0 0 6px #ffc2cc; animation-delay: -2s"></span>
+  <span class="spore" aria-hidden="true" style="left: 360px; top: 520px; width: 4px; height: 4px; background: #c9ceff; box-shadow: 0 0 8px #9aa3ff; animation-delay: -7s"></span>
+  <span class="spore" aria-hidden="true" style="left: 200px; top: 820px; width: 2px; height: 2px; background: #ffffff; animation-delay: -10s"></span>
+  <h1 style="position: absolute; left: 24px; top: 18px; margin: 0; font-size: 24px; font-weight: 700; text-shadow: 0 0 12px rgba(160,170,255,.7)">Touchpad</h1>
+  <a href="#setup" data-view="setup" aria-label="Living Room LG, tap to switch TV" style="position: absolute; right: 22px; top: 28px; display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; color: #ffffff; text-decoration: none; text-shadow: 0 0 10px rgba(190,200,255,.9)"><span style="width: 8px; height: 8px; border-radius: 50%; background: #ffd0da; box-shadow: 0 0 10px 3px #ff9ab0"></span><span class="tvName">My LG TV</span></a>
+
+  <button class="pad" id="pad" aria-label="Touchpad: swipe to move the pointer, tap to click" style="position: absolute; left: 10px; top: 64px; width: 370px; height: 360px; padding: 0; border: 0; background: transparent; cursor: pointer; font-family: inherit; color: #ffffff">
+    <svg aria-hidden="true" width="370" height="360" viewBox="0 0 370 360" style="position: absolute; left: 0; top: 0; overflow: visible">
+      <path style="filter: url(#wet)" d="M8 336 C 8 90, 100 6, 185 6 C 270 6, 362 90, 362 336 Q 342 354, 323 336 Q 303 354, 283 336 Q 264 354, 244 336 Q 224 354, 205 336 Q 185 354, 165 336 Q 146 354, 126 336 Q 106 354, 87 336 Q 67 354, 47 336 Q 28 354, 8 336 Z" fill="url(#bellFill)" stroke="#c9ceff" stroke-opacity=".5" stroke-width="1.4"/>
+      <g stroke="#dfe2ff" stroke-opacity=".14" stroke-width="1"><path d="M185 8 L 24 340"/><path d="M185 8 L 58 340"/><path d="M185 8 L 92 340"/><path d="M185 8 L 126 340"/><path d="M185 8 L 160 340"/><path d="M185 8 L 194 340"/><path d="M185 8 L 228 340"/><path d="M185 8 L 262 340"/><path d="M185 8 L 296 340"/><path d="M185 8 L 330 340"/></g>
+      <path d="M50 120 C 90 40, 170 24, 230 30" stroke="#ffffff" stroke-opacity=".55" stroke-width="7" stroke-linecap="round" fill="none" style="filter: blur(3px)"/>
+      <ellipse cx="185" cy="200" rx="90" ry="70" fill="#ff9ab0" fill-opacity=".12" style="filter: blur(18px)"/>
+      <circle class="rim" cx="28" cy="347" r="1.6" fill="#ffe0e8" style="filter: drop-shadow(0 0 4px #ff9ab0); animation-delay: -0.0s"/><circle class="rim" cx="67" cy="347" r="2.1" fill="#ffe0e8" style="filter: drop-shadow(0 0 4px #ff9ab0); animation-delay: -0.7s"/><circle class="rim" cx="106" cy="347" r="2.6" fill="#ffe0e8" style="filter: drop-shadow(0 0 4px #ff9ab0); animation-delay: -1.4s"/><circle class="rim" cx="146" cy="347" r="1.6" fill="#ffe0e8" style="filter: drop-shadow(0 0 4px #ff9ab0); animation-delay: -2.1s"/><circle class="rim" cx="185" cy="347" r="2.1" fill="#ffe0e8" style="filter: drop-shadow(0 0 4px #ff9ab0); animation-delay: -2.8s"/><circle class="rim" cx="224" cy="347" r="2.6" fill="#ffe0e8" style="filter: drop-shadow(0 0 4px #ff9ab0); animation-delay: -0.5s"/><circle class="rim" cx="264" cy="347" r="1.6" fill="#ffe0e8" style="filter: drop-shadow(0 0 4px #ff9ab0); animation-delay: -1.2s"/><circle class="rim" cx="303" cy="347" r="2.1" fill="#ffe0e8" style="filter: drop-shadow(0 0 4px #ff9ab0); animation-delay: -1.9s"/><circle class="rim" cx="342" cy="347" r="2.6" fill="#ffe0e8" style="filter: drop-shadow(0 0 4px #ff9ab0); animation-delay: -2.6s"/>
+    </svg>
+    <span style="position: relative; display: flex; flex-direction: column; align-items: center; gap: 8px; padding-top: 40px">
+      <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="filter: drop-shadow(0 0 8px rgba(190,200,255,.9))"><path d="M9 11V5a2 2 0 0 1 4 0v6"/><path d="M13 10a2 2 0 0 1 4 0v1a2 2 0 0 1 4 0v3a7 7 0 0 1-7 7h-1a7 7 0 0 1-5.6-2.8L5 15a2 2 0 0 1 3-2.6l1 1.1"/></svg>
+      <span style="font-size: 17px; font-weight: 700; text-shadow: 0 0 10px rgba(190,200,255,.9), 0 1px 2px rgba(10,10,40,.8)">Swipe to move the pointer</span>
+      <span style="font-size: 13px; font-weight: 600; color: #e1e4ff; text-shadow: 0 1px 2px rgba(10,10,40,.8)">Tap to click · Two fingers to scroll</span>
+    </span>
+  </button>
+
+  <label for="tvtext" style="position: absolute; left: 32px; top: 548px; font-size: 12px; letter-spacing: .14em; color: #c9ceff; font-weight: 700">TYPE ON TV</label>
+  <input class="wet field" id="tvtext" placeholder="Type, then Send" autocomplete="off" autocapitalize="off" enterkeyhint="send" style="left: 20px; top: 570px; width: 256px; height: 56px; border-radius: 34px 22px 38px 24px / 28px 34px 24px 30px; padding: 0 20px; font-size: 15px; font-weight: 600; cursor: text; text-align: left; display: block">
+  <button class="wet core speck" data-cmd="sendText" style="left: 286px; top: 560px; width: 86px; height: 74px; border-radius: 54% 46% 50% 50% / 46% 52% 48% 54%; font-size: 16px; text-shadow: 0 0 10px rgba(255,220,225,.9), 0 1px 3px rgba(90,10,30,.8)">Send</button>
+
+  <svg aria-hidden="true" width="390" height="900" viewBox="0 0 390 900" fill="none" style="position: absolute; left: 0; top: 0; pointer-events: none">
+    <g class="swayB" style="transform-origin: 0 720px; filter: url(#wet)">
+      <path d="M-20 736 C 40 760, 80 700, 140 722 S 230 760, 290 712 S 372 700, 368 730" stroke="#3e0c22" stroke-width="34" stroke-linecap="round"/>
+      <path d="M-20 732 C 40 756, 80 696, 140 718 S 230 756, 290 708 S 372 696, 368 726" stroke="url(#tent)" stroke-width="28" stroke-linecap="round"/>
+      <path d="M368 728 C 370 746, 352 754, 346 742 C 342 734, 352 728, 356 734" stroke="#b8505c" stroke-width="10" stroke-linecap="round"/>
+      <path d="M-20 726 C 40 750, 80 690, 140 712 S 230 750, 290 702" stroke="#ffe0d8" stroke-opacity=".45" stroke-width="4" stroke-linecap="round" style="filter: blur(1.5px)"/>
+      <circle cx="20" cy="752" r="4" fill="#f2b0a8" stroke="#7a2440" stroke-width="1.5"/><circle cx="20" cy="752.6" r="1.8" fill="#7a2440"/><circle cx="104" cy="722" r="3.5" fill="#f2b0a8" stroke="#7a2440" stroke-width="1.5"/><circle cx="104" cy="722.6" r="1.6" fill="#7a2440"/><circle cx="184" cy="744" r="3.5" fill="#f2b0a8" stroke="#7a2440" stroke-width="1.5"/><circle cx="184" cy="744.6" r="1.6" fill="#7a2440"/><circle cx="258" cy="730" r="3" fill="#f2b0a8" stroke="#7a2440" stroke-width="1.5"/><circle cx="258" cy="730.6" r="1.4" fill="#7a2440"/><circle cx="334" cy="712" r="3" fill="#f2b0a8" stroke="#7a2440" stroke-width="1.5"/><circle cx="334" cy="712.6" r="1.4" fill="#7a2440"/>
+    </g>
+  </svg>
+  <button class="wet sucker" aria-label="Back" data-btn="BACK" style="left: 34px; top: 686px; width: 62px; height: 62px; --glow: #9aa3ff"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 14L4 9l5-5"/><path d="M4 9h11a5 5 0 0 1 0 10h-3"/></svg></button>
+  <span aria-hidden="true" style="position: absolute; left: 14px; top: 754px; width: 102px; text-align: center; font-size: 12px; font-weight: 700; color: #e6e8ff; text-shadow: 0 0 8px rgba(190,200,255,.7)">Back</span>
+  <button class="wet sucker" aria-label="Home" data-btn="HOME" style="left: 112px; top: 694px; width: 64px; height: 64px; --glow: #9aa3ff"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg></button>
+  <span aria-hidden="true" style="position: absolute; left: 92px; top: 764px; width: 104px; text-align: center; font-size: 12px; font-weight: 700; color: #e6e8ff; text-shadow: 0 0 8px rgba(190,200,255,.7)">Home</span>
+  <button class="wet sucker" aria-label="Play/Pause" data-cmd="playPause" style="left: 196px; top: 694px; width: 64px; height: 64px; --glow: #ff9ab0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4l10 8-10 8z"/><path d="M17 5v14M21 5v14"/></svg></button>
+  <span aria-hidden="true" style="position: absolute; left: 176px; top: 764px; width: 104px; text-align: center; font-size: 12px; font-weight: 700; color: #e6e8ff; text-shadow: 0 0 8px rgba(190,200,255,.7)">Play/Pause</span>
+  <button class="wet sucker" aria-label="Mute" data-cmd="mute" style="left: 276px; top: 676px; width: 62px; height: 62px; --glow: #ff9ab0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6 9H3v6h3l5 4z"/><path d="M22 9l-6 6M16 9l6 6"/></svg></button>
+  <span aria-hidden="true" style="position: absolute; left: 256px; top: 744px; width: 102px; text-align: center; font-size: 12px; font-weight: 700; color: #e6e8ff; text-shadow: 0 0 8px rgba(190,200,255,.7)">Mute</span>
+
+
+</section>
+<section class="view" id="v-setup" style="position: relative; overflow: hidden; width: 390px; height: 900px; box-sizing: border-box; background: linear-gradient(170deg, rgba(120,130,255,.10) 0%, transparent 30%), linear-gradient(190deg, transparent 20%, rgba(120,130,255,.06) 32%, transparent 44%), radial-gradient(60% 40% at 40% 66%, rgba(140,60,120,.22), transparent 70%), linear-gradient(180deg, #0c0828 0%, #08041a 50%, #04020c 100%); color: #e6e8ff; font-family: Quicksand, system-ui, sans-serif">
+
+  
+  <svg aria-hidden="true" width="390" height="900" viewBox="0 0 390 900" fill="none" style="position: absolute; left: 0; top: 0; pointer-events: none">
+    <defs>
+      <filter id="skin" filterUnits="userSpaceOnUse" x="0" y="0" width="390" height="900">
+        <feTurbulence type="fractalNoise" baseFrequency="0.028 0.022" numOctaves="3" seed="11" result="n">
+          <animate attributeName="baseFrequency" dur="22s" values="0.028 0.022;0.031 0.025;0.028 0.022" repeatCount="indefinite"/>
+        </feTurbulence>
+        <feSpecularLighting in="n" surfaceScale="3.2" specularConstant=".9" specularExponent="16" lighting-color="#c8ccff" result="s"><fePointLight x="150" y="200" z="260"/></feSpecularLighting>
+        <feColorMatrix in="s" type="matrix" values="0 0 0 0 .78  0 0 0 0 .8  0 0 0 0 1  .33 .33 .33 0 -.18"/>
+      </filter>
+      <filter id="cells" filterUnits="userSpaceOnUse" x="0" y="0" width="390" height="900">
+        <feTurbulence type="turbulence" baseFrequency="0.045" numOctaves="1" seed="3" result="t"/>
+        <feColorMatrix in="t" type="matrix" values="0 0 0 0 .55  0 0 0 0 .3  0 0 0 0 .75  -1.4 0 0 0 .55"/>
+      </filter>
+      <radialGradient id="wallL" cx="0" cy=".5" r="1"><stop offset="0" stop-color="#2a0a2c"/><stop offset=".6" stop-color="#14061e" stop-opacity=".6"/><stop offset="1" stop-color="#14061e" stop-opacity="0"/></radialGradient>
+      <radialGradient id="wallR" cx="1" cy=".5" r="1"><stop offset="0" stop-color="#1c0a34"/><stop offset=".6" stop-color="#0e0620" stop-opacity=".6"/><stop offset="1" stop-color="#0e0620" stop-opacity="0"/></radialGradient>
+    </defs>
+    <rect width="390" height="900" filter="url(#cells)" opacity=".2"/>
+    <ellipse cx="170" cy="168" rx="120" ry="96" fill="#7f88ff" opacity="0.2" style="filter: blur(30px)"/>
+    <ellipse cx="250" cy="330" rx="110" ry="88" fill="#b080ff" opacity="0.18" style="filter: blur(30px)"/>
+    <ellipse cx="80" cy="650" rx="110" ry="88" fill="#ff6f9a" opacity="0.16" style="filter: blur(30px)"/>
+    <path d="M0 0 L 34 0 C 18 120, 46 220, 22 330 S 40 560, 18 700 S 36 860, 26 900 L 0 900 Z" fill="url(#wallL)"/>
+    <path d="M390 0 L 356 0 C 372 140, 344 260, 368 380 S 350 600, 372 720 S 354 860, 364 900 L 390 900 Z" fill="url(#wallR)"/>
+    <path d="M34 0 C 18 120, 46 220, 22 330 S 40 560, 18 700 S 36 860, 26 900" stroke="#ff9ab0" stroke-opacity=".22" stroke-width="1.4"/>
+    <path d="M356 0 C 372 140, 344 260, 368 380 S 350 600, 372 720 S 354 860, 364 900" stroke="#9aa3ff" stroke-opacity=".25" stroke-width="1.4"/>
+    <g stroke-linecap="round">
+      <path d="M299 271 C 303 254, 282 248, 281 232" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M281 232 C 273 227, 266 220, 262 211" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M262 211 C 258 205, 251 204, 244 204" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M262 211 C 256 210, 255 203, 250 199" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M281 232 C 282 220, 270 216, 264 208" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M264 208 C 263 202, 264 197, 267 193" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M264 208 C 257 204, 253 199, 252 191" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M259 149 C 253 161, 235 156, 230 170" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M230 170 C 227 176, 219 178, 217 186" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M230 170 C 224 178, 227 187, 225 195" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M225 195 C 228 199, 228 205, 232 208" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M225 195 C 222 201, 216 202, 211 206" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M326 243 C 334 246, 340 254, 348 257" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M348 257 C 353 259, 357 261, 363 261" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M348 257 C 354 261, 351 269, 354 274" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M292 316 C 296 331, 283 346, 293 361" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M293 361 C 292 370, 286 377, 284 386" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M284 386 C 284 392, 280 395, 275 398" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M284 386 C 279 389, 282 396, 278 399" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M293 361 C 295 372, 289 383, 294 393" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M294 393 C 302 395, 304 403, 311 406" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M294 393 C 293 400, 288 404, 286 410" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M308 247 C 303 258, 293 262, 282 264" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M282 264 C 278 260, 272 260, 266 259" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M282 264 C 274 264, 268 268, 261 270" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M261 270 C 261 276, 256 278, 252 281" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M301 317 C 289 317, 278 317, 266 316" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M266 316 C 259 316, 253 310, 245 313" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M266 316 C 259 323, 249 319, 242 324" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M242 324 C 237 321, 231 321, 229 315" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M242 324 C 237 321, 233 319, 228 320" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M49 492 C 45 479, 32 472, 27 458" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M27 458 C 24 450, 33 443, 29 435" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M29 435 C 32 430, 37 428, 40 423" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M27 458 C 21 449, 11 450, 1 448" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M1 448 C -3 445, -5 439, -9 436" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M1 448 C -5 444, -11 443, -18 445" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M73 448 C 64 442, 60 434, 59 424" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M59 424 C 59 418, 53 415, 55 409" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M59 424 C 52 423, 48 419, 44 414" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M-7 528 C -24 525, -23 505, -38 499" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M-38 499 C -46 498, -53 494, -61 492" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M-61 492 C -66 491, -71 489, -75 486" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M-61 492 C -62 486, -67 483, -72 479" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M-38 499 C -47 504, -55 499, -64 496" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M-64 496 C -70 496, -77 496, -82 491" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M-64 496 C -71 494, -78 494, -83 500" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M21 549 C 27 539, 30 528, 30 515" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M30 515 C 29 508, 36 503, 36 495" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M36 495 C 42 496, 46 493, 49 489" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M36 495 C 37 490, 31 486, 32 481" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M30 515 C 33 508, 26 503, 27 496" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M-7 546 C -9 563, 15 567, 14 584" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M14 584 C 23 587, 24 597, 31 602" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M31 602 C 36 604, 37 610, 42 613" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M14 584 C 21 589, 27 593, 30 601" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M30 601 C 33 605, 32 612, 39 614" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M25 598 C 22 587, 22 574, 11 566" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M11 566 C 9 558, 5 551, 10 542" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M10 542 C 5 538, 2 534, 2 527" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M11 566 C 11 558, 14 551, 12 543" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M12 543 C 9 539, 6 535, 1 533" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M150 855 C 152 847, 151 838, 156 830" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M156 830 C 158 824, 155 819, 154 814" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M156 830 C 157 824, 159 820, 161 814" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M160 765 C 151 754, 147 740, 137 729" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M137 729 C 133 721, 122 726, 119 718" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M137 729 C 135 719, 132 709, 141 700" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M141 700 C 148 697, 145 688, 152 685" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M141 700 C 141 693, 153 693, 153 684" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M346 813 C 323 812, 310 798, 303 777" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M303 777 C 291 769, 277 772, 265 767" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M265 767 C 257 762, 261 750, 252 746" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M265 767 C 256 764, 255 757, 253 750" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M303 777 C 292 773, 282 778, 272 776" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M272 776 C 268 772, 266 767, 260 765" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M272 776 C 264 775, 257 775, 251 769" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M312 353 C 328 351, 341 334, 360 340" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M360 340 C 369 342, 377 336, 387 337" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M387 337 C 390 333, 393 329, 399 329" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M387 337 C 392 334, 398 332, 405 330" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M360 340 C 364 332, 371 327, 378 321" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M378 321 C 377 314, 381 310, 384 305" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M378 321 C 380 314, 386 310, 391 306" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M171 236 C 166 252, 171 269, 168 285" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M168 285 C 176 293, 183 303, 185 315" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M185 315 C 182 322, 180 329, 183 337" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M185 315 C 181 320, 183 327, 180 332" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M168 285 C 165 294, 152 294, 151 305" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M151 305 C 145 304, 142 309, 137 309" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M151 305 C 147 310, 153 315, 150 320" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M325 773 C 323 761, 337 756, 339 745" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M339 745 C 343 740, 346 734, 346 727" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M339 745 C 338 740, 337 734, 334 730" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M352 610 C 367 604, 381 605, 396 612" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M396 612 C 405 614, 415 619, 425 612" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M425 612 C 431 613, 436 612, 440 608" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M425 612 C 432 613, 438 612, 444 609" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M396 612 C 401 606, 409 602, 414 596" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M51 280 C 38 293, 13 286, 2 306" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M2 306 C -8 299, -19 309, -30 305" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M-30 305 C -36 309, -40 313, -43 319" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M-30 305 C -38 308, -45 309, -52 305" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M2 306 C -8 303, -15 313, -25 310" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M-25 310 C -32 311, -37 307, -41 302" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M-25 310 C -30 312, -32 317, -36 321" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M173 168 C 190 185, 214 162, 231 178" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M231 178 C 237 187, 245 195, 252 204" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M252 204 C 258 204, 264 206, 271 206" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M252 204 C 257 209, 257 217, 259 223" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M231 178 C 242 189, 256 191, 271 190" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M271 190 C 280 188, 288 191, 297 190" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M271 190 C 280 193, 284 200, 289 208" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M382 357 C 376 374, 358 385, 356 405" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M356 405 C 366 415, 361 427, 364 439" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M364 439 C 360 444, 358 450, 358 457" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M364 439 C 355 443, 356 453, 350 459" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M356 405 C 355 418, 365 428, 362 442" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M362 442 C 372 443, 376 450, 380 457" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M362 442 C 366 449, 370 456, 376 462" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M384 751 C 397 760, 414 759, 428 765" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M428 765 C 436 762, 445 765, 453 762" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M453 762 C 459 760, 465 763, 471 761" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M428 765 C 437 769, 437 780, 446 784" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M446 784 C 451 781, 456 782, 461 783" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M446 784 C 453 781, 458 788, 464 787" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M211 553 C 195 561, 186 580, 165 579" stroke="#6a2a6a" stroke-opacity="0.42" stroke-width="2.1"/>
+      <path d="M165 579 C 153 586, 141 586, 128 580" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M128 580 C 120 580, 112 582, 104 577" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M128 580 C 118 576, 111 586, 101 584" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M165 579 C 159 589, 151 599, 157 613" stroke="#6a2a6a" stroke-opacity="0.34" stroke-width="1.4"/>
+      <path d="M157 613 C 153 620, 142 621, 141 631" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M157 613 C 150 615, 150 623, 143 626" stroke="#6a2a6a" stroke-opacity="0.26" stroke-width="0.7"/>
+      <path d="M390 240 C 299 271, 259 149, 170 168" stroke="#1a0618" stroke-width="7"/><path d="M390 240 C 299 271, 259 149, 170 168" stroke="#7a3474" stroke-opacity=".75" stroke-width="3.6"/><path d="M390 240 C 299 271, 259 149, 170 168" stroke="#d898d8" stroke-opacity=".35" stroke-width="1"/>
+      <path d="M390 240 C 326 243, 292 316, 224 314" stroke="#1a0618" stroke-width="7"/><path d="M390 240 C 326 243, 292 316, 224 314" stroke="#7a3474" stroke-opacity=".75" stroke-width="3.6"/><path d="M390 240 C 326 243, 292 316, 224 314" stroke="#d898d8" stroke-opacity=".35" stroke-width="1"/>
+      <path d="M390 240 C 308 247, 301 317, 278 375" stroke="#1a0618" stroke-width="7"/><path d="M390 240 C 308 247, 301 317, 278 375" stroke="#7a3474" stroke-opacity=".75" stroke-width="3.6"/><path d="M390 240 C 308 247, 301 317, 278 375" stroke="#d898d8" stroke-opacity=".35" stroke-width="1"/>
+      <path d="M0 480 C 49 492, 73 448, 110 430" stroke="#1a0618" stroke-width="7"/><path d="M0 480 C 49 492, 73 448, 110 430" stroke="#7a3474" stroke-opacity=".75" stroke-width="3.6"/><path d="M0 480 C 49 492, 73 448, 110 430" stroke="#d898d8" stroke-opacity=".35" stroke-width="1"/>
+      <path d="M0 480 C -7 528, 21 549, 62 562" stroke="#1a0618" stroke-width="7"/><path d="M0 480 C -7 528, 21 549, 62 562" stroke="#7a3474" stroke-opacity=".75" stroke-width="3.6"/><path d="M0 480 C -7 528, 21 549, 62 562" stroke="#d898d8" stroke-opacity=".35" stroke-width="1"/>
+      <path d="M0 480 C -7 546, 25 598, 58 652" stroke="#1a0618" stroke-width="7"/><path d="M0 480 C -7 546, 25 598, 58 652" stroke="#7a3474" stroke-opacity=".75" stroke-width="3.6"/><path d="M0 480 C -7 546, 25 598, 58 652" stroke="#d898d8" stroke-opacity=".35" stroke-width="1"/>
+      <path d="M200 900 C 150 855, 160 765, 80 740" stroke="#1a0618" stroke-width="7"/><path d="M200 900 C 150 855, 160 765, 80 740" stroke="#7a3474" stroke-opacity=".75" stroke-width="3.6"/><path d="M200 900 C 150 855, 160 765, 80 740" stroke="#d898d8" stroke-opacity=".35" stroke-width="1"/>
+    </g>
+    <g stroke="#ffd0e0" stroke-width="2.4" stroke-linecap="round" class="vein" style="filter: drop-shadow(0 0 3px #ff9ab0)">
+      <path d="M390 240 C 299 271, 259 149, 170 168" style="animation-delay: -0.0s"/>
+      <path d="M390 240 C 326 243, 292 316, 224 314" style="animation-delay: -1.3s"/>
+      <path d="M390 240 C 308 247, 301 317, 278 375" style="animation-delay: -2.6s"/>
+      <path d="M0 480 C 49 492, 73 448, 110 430" style="animation-delay: -3.9s"/>
+      <path d="M0 480 C -7 528, 21 549, 62 562" style="animation-delay: -5.2s"/>
+      <path d="M0 480 C -7 546, 25 598, 58 652" style="animation-delay: -6.5s"/>
+      <path d="M200 900 C 150 855, 160 765, 80 740" style="animation-delay: -7.8s"/>
+    </g>
+    <rect width="390" height="900" filter="url(#skin)" opacity=".16"/>
+  </svg>
+
+  <span class="spore" aria-hidden="true" style="left: 34px; top: 470px; width: 3px; height: 3px; background: #ffffff; box-shadow: 0 0 6px #ffc2cc; animation-delay: -2s"></span>
+  <span class="spore" aria-hidden="true" style="left: 360px; top: 520px; width: 4px; height: 4px; background: #c9ceff; box-shadow: 0 0 8px #9aa3ff; animation-delay: -7s"></span>
+  <span class="spore" aria-hidden="true" style="left: 200px; top: 820px; width: 2px; height: 2px; background: #ffffff; animation-delay: -10s"></span>
+  <div class="goo" aria-hidden="true" style="position: absolute; inset: 0; pointer-events: none; opacity: .66">
+    <div class="flesh" style="position: absolute; left: 10px; top: 112px; width: 320px; height: 112px; border-radius: 50%"></div><div class="flesh" style="position: absolute; left: 250px; top: 170px; width: 60px; height: 90px; border-radius: 50%"></div><div class="flesh" style="position: absolute; left: 66px; top: 250px; width: 316px; height: 128px; border-radius: 50%"></div><div class="flesh" style="position: absolute; left: 200px; top: 340px; width: 150px; height: 70px; border-radius: 50%"></div><div class="flesh" style="position: absolute; left: 20px; top: 404px; width: 180px; height: 56px; border-radius: 50%"></div><div class="flesh" style="position: absolute; left: 120px; top: 380px; width: 90px; height: 40px; border-radius: 50%"></div>
+  </div>
+  <div style="position: absolute; left: 24px; top: 18px; display: flex; flex-direction: column; gap: 4px">
+    <h1 style="margin: 0; font-size: 24px; font-weight: 700; text-shadow: 0 0 12px rgba(160,170,255,.7)">Your TVs</h1>
+    <p style="margin: 0; font-size: 14px; font-weight: 600; color: #c9ceff">Phone and TV must be on the same Wi-Fi.</p>
+  </div>
+
+  <span style="position: absolute; left: 40px; top: 98px; font-size: 11px; letter-spacing: .16em; color: #e1e4ff; font-weight: 700">YOUR TV</span>
+  <div style="position: absolute; left: 36px; top: 134px; display: flex; align-items: center; gap: 14px">
+    <span class="wet" aria-hidden="true" style="position: relative; width: 48px; height: 48px; border-radius: 50% 44% 52% 48%; cursor: default"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><rect x="2" y="4" width="20" height="13" rx="4"/><path d="M8 21h8M12 17v4"/></svg></span>
+    <span style="display: flex; flex-direction: column; gap: 2px; text-shadow: 0 1px 3px rgba(10,10,40,.9)">
+      <span class="tvName" style="font-size: 16px; font-weight: 700; color: #ffffff">My LG TV</span>
+      <span id="tvIpShow" style="font-size: 13px; font-weight: 600; color: #e1e4ff">Not set up yet</span>
+    </span>
+    <span style="display: flex; align-items: center; gap: 6px; margin-left: 6px; font-size: 13px; color: #ffe0e8; font-weight: 700; text-shadow: 0 0 8px #ff9ab0"><span class="live statusDot" style="width: 10px; height: 10px; border-radius: 50%; background: #ffe0e8"></span><span id="statusText">Off</span></span>
+  </div>
+  <label for="ipInput" style="position: absolute; left: 106px; top: 258px; font-size: 11px; letter-spacing: .16em; color: #e1e4ff; font-weight: 700">TV IP ADDRESS</label>
+  <input class="wet field" id="ipInput" inputmode="decimal" placeholder="192.168.1.50" autocomplete="off" style="left: 96px; top: 280px; width: 270px; height: 56px; border-radius: 34px 22px 38px 24px / 28px 34px 24px 30px; padding: 0 20px; font-size: 17px; font-weight: 700; cursor: text; text-align: left; display: block">
+  <button class="wet core speck" data-cmd="connect" style="left: 212px; top: 344px; width: 132px; height: 62px; border-radius: 54% 46% 52% 48% / 46% 54% 46% 54%; font-size: 16px; text-shadow: 0 0 10px rgba(255,220,225,.9), 0 1px 3px rgba(90,10,30,.8)">Connect</button>
+  <button class="wet" data-cmd="trust" style="left: 26px; top: 360px; width: 168px; height: 50px; font-size: 13px; border-radius: 30px 22px 34px 20px / 26px 32px 22px 30px; --glow: #b9a8ff">iPhone: trust TV</button>
+  <button class="wet" data-cmd="forget" style="left: 40px; top: 424px; width: 128px; height: 40px; font-size: 12px; border-radius: 24px 18px 26px 16px / 20px 24px 18px 22px; --glow: #ff9ab0">Forget TV</button>
+<svg aria-hidden="true" width="390" height="900" viewBox="0 0 390 900" fill="none" style="position: absolute; left: 0; top: 0; pointer-events: none">
+    <g class="swayB" style="transform-origin: 0 520px; filter: url(#wet)">
+      <path d="M-20 520 C 60 520, 70 580, 56 640 S 40 740, 90 778 S 150 790, 140 770" stroke="#3e0c22" stroke-width="30" stroke-linecap="round"/>
+      <path d="M-22 516 C 58 516, 68 576, 54 636 S 38 736, 88 774 S 148 786, 138 766" stroke="url(#tent)" stroke-width="24" stroke-linecap="round"/>
+      <path d="M-22 510 C 56 510, 62 570, 48 632" stroke="#ffe0d8" stroke-opacity=".45" stroke-width="4" stroke-linecap="round" style="filter: blur(1.5px)"/>
+      <circle cx="30" cy="530" r="3.5" fill="#f2b0a8" stroke="#7a2440" stroke-width="1.5"/><circle cx="30" cy="530.6" r="1.6" fill="#7a2440"/><circle cx="70" cy="608" r="3.5" fill="#f2b0a8" stroke="#7a2440" stroke-width="1.5"/><circle cx="70" cy="608.6" r="1.6" fill="#7a2440"/><circle cx="46" cy="700" r="3.5" fill="#f2b0a8" stroke="#7a2440" stroke-width="1.5"/><circle cx="46" cy="700.6" r="1.6" fill="#7a2440"/><circle cx="116" cy="784" r="3" fill="#f2b0a8" stroke="#7a2440" stroke-width="1.5"/><circle cx="116" cy="784.6" r="1.4" fill="#7a2440"/>
+    </g>
+  </svg>
+  <span style="position: absolute; left: 160px; top: 506px; font-size: 15px; font-weight: 700; color: #ffe0e8; text-shadow: 0 0 10px rgba(255,150,170,.7)">How to connect</span>
+  <span class="wet sucker" aria-hidden="true" style="left: 40px; top: 540px; width: 44px; height: 44px; font-size: 16px; cursor: default">1</span>
+  <span style="position: absolute; left: 104px; top: 550px; width: 260px; font-size: 15px; font-weight: 600; color: #ffffff; line-height: 1.4; text-shadow: 0 1px 3px rgba(10,10,40,.9)">Turn the TV on. Phone on the same Wi-Fi.</span>
+  <span class="wet sucker" aria-hidden="true" style="left: 36px; top: 630px; width: 44px; height: 44px; font-size: 16px; cursor: default">2</span>
+  <span style="position: absolute; left: 100px; top: 632px; width: 270px; font-size: 14px; font-weight: 600; color: #ffffff; line-height: 1.4; text-shadow: 0 1px 3px rgba(10,10,40,.9)">Type the TV&#39;s IP (TV: Settings › Network › Wi-Fi › Advanced), tap Connect.</span>
+  <span class="wet sucker" aria-hidden="true" style="left: 58px; top: 718px; width: 44px; height: 44px; font-size: 16px; cursor: default">3</span>
+  <span style="position: absolute; left: 122px; top: 728px; width: 242px; font-size: 15px; font-weight: 600; color: #ffffff; line-height: 1.4; text-shadow: 0 1px 3px rgba(10,10,40,.9)">Choose Accept on the TV with your normal remote.</span>
+
+
+</section>
+  <nav style="position: absolute; left: 0; right: 0; bottom: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); padding: 18px 0 16px; z-index: 30">
+    <svg aria-hidden="true" width="390" height="120" viewBox="0 0 390 120" style="position: absolute; left: 0; top: -22px; pointer-events: none; overflow: visible">
+      <defs><linearGradient id="lip" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6a2458"/><stop offset=".12" stop-color="#2a0a2e"/><stop offset=".5" stop-color="#0e0418"/><stop offset="1" stop-color="#05020c"/></linearGradient></defs>
+      <path d="M390 26 Q 375 14, 360 26 Q 345 20, 330 26 Q 315 14, 300 26 Q 285 20, 270 26 Q 255 14, 240 26 Q 225 20, 210 26 Q 195 14, 180 26 Q 165 20, 150 26 Q 135 14, 120 26 Q 105 20, 90 26 Q 75 14, 60 26 Q 45 20, 30 26 Q 15 14, 0 26 L 0 120 L 390 120 Z" fill="url(#lip)" stroke="#ff9ab0" stroke-opacity=".4" stroke-width="1.2"/>
+      <circle class="rim" cx="15" cy="24" r="1.6" fill="#ffe0e8" style="filter: drop-shadow(0 0 4px #ff9ab0); animation-delay: -0.0s"/><circle class="rim" cx="45" cy="27" r="2.1" fill="#ffe0e8" style="filter: drop-shadow(0 0 4px #ff9ab0); animation-delay: -0.6s"/><circle class="rim" cx="75" cy="24" r="2.6" fill="#ffe0e8" style="filter: drop-shadow(0 0 4px #ff9ab0); animation-delay: -1.2s"/><circle class="rim" cx="105" cy="27" r="1.6" fill="#ffe0e8" style="filter: drop-shadow(0 0 4px #ff9ab0); animation-delay: -1.8s"/><circle class="rim" cx="135" cy="24" r="2.1" fill="#ffe0e8" style="filter: drop-shadow(0 0 4px #ff9ab0); animation-delay: -2.4s"/><circle class="rim" cx="165" cy="27" r="2.6" fill="#ffe0e8" style="filter: drop-shadow(0 0 4px #ff9ab0); animation-delay: -0.0s"/><circle class="rim" cx="195" cy="24" r="1.6" fill="#ffe0e8" style="filter: drop-shadow(0 0 4px #ff9ab0); animation-delay: -0.6s"/><circle class="rim" cx="225" cy="27" r="2.1" fill="#ffe0e8" style="filter: drop-shadow(0 0 4px #ff9ab0); animation-delay: -1.2s"/><circle class="rim" cx="255" cy="24" r="2.6" fill="#ffe0e8" style="filter: drop-shadow(0 0 4px #ff9ab0); animation-delay: -1.8s"/><circle class="rim" cx="285" cy="27" r="1.6" fill="#ffe0e8" style="filter: drop-shadow(0 0 4px #ff9ab0); animation-delay: -2.4s"/><circle class="rim" cx="315" cy="24" r="2.1" fill="#ffe0e8" style="filter: drop-shadow(0 0 4px #ff9ab0); animation-delay: -0.0s"/><circle class="rim" cx="345" cy="27" r="2.6" fill="#ffe0e8" style="filter: drop-shadow(0 0 4px #ff9ab0); animation-delay: -0.6s"/><circle class="rim" cx="375" cy="24" r="1.6" fill="#ffe0e8" style="filter: drop-shadow(0 0 4px #ff9ab0); animation-delay: -1.2s"/>
+    </svg>
+    <a class="tab" href="#remote" data-view="remote"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="5"/><circle cx="12" cy="8" r="2"/></svg>Remote</a>
+    <a class="tab" href="#touch" data-view="touch"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="5"/></svg>Touchpad</a>
+    <a class="tab" href="#setup" data-view="setup"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="2" y="4" width="20" height="13" rx="4"/><path d="M8 21h8M12 17v4"/></svg>TVs</a>
+  </nav>
+  <div id="toast" role="status" aria-live="polite"></div>
+</div>
+<script>
+// TV Creature — LG webOS remote that runs in the phone's browser.
+// Created using Claude by Anthropic. Reviewed by ALIVE Solar & Roofing.
+// Pairing manifest from the lgtv2 project (MIT license).
+(function () {
+  'use strict';
+  var PAIRING = {"forcePairing": false, "pairingType": "PROMPT", "manifest": {"manifestVersion": 1, "appVersion": "1.1", "signed": {"created": "20140509", "appId": "com.lge.test", "vendorId": "com.lge", "localizedAppNames": {"": "LG Remote App", "ko-KR": "리모컨 앱", "zxx-XX": "ЛГ Rэмotэ AПП"}, "localizedVendorNames": {"": "LG Electronics"}, "permissions": ["TEST_SECURE", "CONTROL_INPUT_TEXT", "CONTROL_MOUSE_AND_KEYBOARD", "READ_INSTALLED_APPS", "READ_LGE_SDX", "READ_NOTIFICATIONS", "SEARCH", "WRITE_SETTINGS", "WRITE_NOTIFICATION_ALERT", "CONTROL_POWER", "READ_CURRENT_CHANNEL", "READ_RUNNING_APPS", "READ_UPDATE_INFO", "UPDATE_FROM_REMOTE_APP", "READ_LGE_TV_INPUT_EVENTS", "READ_TV_CURRENT_TIME"], "serial": "2f930e2d2cfe083771f68e4fe7bb07"}, "permissions": ["LAUNCH", "LAUNCH_WEBAPP", "APP_TO_APP", "CLOSE", "TEST_OPEN", "TEST_PROTECTED", "CONTROL_AUDIO", "CONTROL_DISPLAY", "CONTROL_INPUT_JOYSTICK", "CONTROL_INPUT_MEDIA_RECORDING", "CONTROL_INPUT_MEDIA_PLAYBACK", "CONTROL_INPUT_TV", "CONTROL_POWER", "READ_APP_STATUS", "READ_CURRENT_CHANNEL", "READ_INPUT_DEVICE_LIST", "READ_NETWORK_STATE", "READ_RUNNING_APPS", "READ_TV_CHANNEL_LIST", "WRITE_NOTIFICATION_TOAST", "READ_POWER_STATE", "READ_COUNTRY_INFO", "READ_SETTINGS", "CONTROL_TV_SCREEN", "CONTROL_TV_STANBY", "CONTROL_FAVORITE_GROUP", "CONTROL_USER_INFO", "CHECK_BLUETOOTH_DEVICE", "CONTROL_BLUETOOTH", "CONTROL_TIMER_INFO", "STB_INTERNAL_CONNECTION", "CONTROL_RECORDING", "READ_RECORDING_STATE", "WRITE_RECORDING_LIST", "READ_RECORDING_LIST", "READ_RECORDING_SCHEDULE", "WRITE_RECORDING_SCHEDULE", "READ_STORAGE_DEVICE_LIST", "READ_TV_PROGRAM_INFO", "CONTROL_BOX_CHANNEL", "READ_TV_ACR_AUTH_TOKEN", "READ_TV_CONTENT_STATE", "READ_TV_CURRENT_TIME", "ADD_LAUNCHER_CHANNEL", "SET_CHANNEL_SKIP", "RELEASE_CHANNEL_SKIP", "CONTROL_CHANNEL_BLOCK", "DELETE_SELECT_CHANNEL", "CONTROL_CHANNEL_GROUP", "SCAN_TV_CHANNELS", "CONTROL_TV_POWER", "CONTROL_WOL"], "signatures": [{"signatureVersion": 1, "signature": "eyJhbGdvcml0aG0iOiJSU0EtU0hBMjU2Iiwia2V5SWQiOiJ0ZXN0LXNpZ25pbmctY2VydCIsInNpZ25hdHVyZVZlcnNpb24iOjF9.hrVRgjCwXVvE2OOSpDZ58hR+59aFNwYDyjQgKk3auukd7pcegmE2CzPCa0bJ0ZsRAcKkCTJrWo5iDzNhMBWRyaMOv5zWSrthlf7G128qvIlpMT0YNY+n/FaOHE73uLrS/g7swl3/qH/BGFG2Hu4RlL48eb3lLKqTt2xKHdCs6Cd4RMfJPYnzgvI4BNrFUKsjkcu+WD4OO2A27Pq1n50cMchmcaXadJhGrOqH5YmHdOCj5NSHzJYrsW0HPlpuAx/ECMeIZYDh6RMqaFM2DXzdKX9NmmyqzJ3o/0lkk/N97gfVRLW5hA29yeAwaCViZNCP8iC9aO0q9fQojoa7NQnAtw=="}]}};
+  var APP_IDS = { netflix: 'netflix', youtube: 'youtube.leanback.v4', prime: 'amazon', disney: 'com.disney.disneyplus-prod', hulu: 'hulu', live: 'com.webos.app.livetv' };
+  var APP_NAMES = { netflix: 'Netflix', youtube: 'YouTube', prime: 'Prime Video', disney: 'Disney+', hulu: 'Hulu', live: 'Live TV' };
+  var MENU_KIND = { netflix: 'tongue', youtube: 'tongue', prime: 'frond', disney: 'frond' };
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  var store = {
+    get: function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+    set: function (k, v) { try { localStorage.setItem(k, v); } catch (e) {} },
+    del: function (k) { try { localStorage.removeItem(k); } catch (e) {} }
+  };
+
+  // ---------- layout: scale the 390x900 creature to fit the screen
+  function fit() {
+    var st = $('#stage'); var s = Math.min(window.innerWidth / 390, window.innerHeight / 900);
+    st.style.transform = 'translate(-50%,-50%) scale(' + s + ')';
+  }
+  window.addEventListener('resize', fit); fit();
+  document.addEventListener('touchstart', function () {}, { passive: true }); // enables :active on iOS
+
+  // unique SVG ids per view so hidden views don't break visible ones
+  ['remote', 'touch', 'setup'].forEach(function (v) {
+    var sec = $('#v-' + v);
+    ['skin', 'cells', 'wallL', 'wallR'].forEach(function (id) {
+      $$('[id="' + id + '"]', sec).forEach(function (el) { el.id = id + '-' + v; });
+      $$('[filter="url(#' + id + ')"],[fill="url(#' + id + ')"]', sec).forEach(function (el) {
+        if (el.getAttribute('filter') === 'url(#' + id + ')') el.setAttribute('filter', 'url(#' + id + '-' + v + ')');
+        if (el.getAttribute('fill') === 'url(#' + id + ')') el.setAttribute('fill', 'url(#' + id + '-' + v + ')');
+      });
+    });
+  });
+
+  // ---------- toast
+  var toastT;
+  function toast(msg, ms) {
+    var t = $('#toast'); t.textContent = msg; t.classList.add('show');
+    clearTimeout(toastT); toastT = setTimeout(function () { t.classList.remove('show'); }, ms || 2600);
+  }
+
+  // ---------- views
+  function show(v) {
+    $$('.view').forEach(function (s) { s.classList.toggle('on', s.id === 'v-' + v); });
+    $$('.tab').forEach(function (a) { a.classList.toggle('on', a.dataset.view === v); });
+    closeMenu();
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('[data-view]'); if (!a) return;
+    e.preventDefault(); show(a.dataset.view);
+  });
+
+  // ---------- LG connection
+  var ws = null, pointer = null, pending = {}, seq = 0, connected = false, triedSecure = false;
+  var ip = store.get('tv.ip') || '';
+  function setStatus(on, text) {
+    connected = on;
+    $$('.statusDot').forEach(function (d) { d.classList.toggle('offline', !on); });
+    $('#statusText').textContent = text || (on ? 'On' : 'Off');
+    $('#tvIpShow').textContent = ip ? ip : 'Not set up yet';
+  }
+  function send(type, uri, payload) {
+    return new Promise(function (resolve, reject) {
+      if (!ws || ws.readyState !== 1) { reject(new Error('Not connected')); return; }
+      var id = type + '_' + (++seq);
+      pending[id] = { resolve: resolve, reject: reject };
+      var msg = { type: type, id: id };
+      if (uri) msg.uri = uri;
+      if (payload) msg.payload = payload;
+      ws.send(JSON.stringify(msg));
+      setTimeout(function () { if (pending[id]) { delete pending[id]; reject(new Error('TV did not answer')); } }, 8000);
+    });
+  }
+  function request(uri, payload) { return send('request', uri, payload || {}); }
+
+  function connect(host, secure) {
+    if (!host) { show('setup'); toast('Enter your TV’s IP address first'); return; }
+    try { if (ws) { ws.onclose = null; ws.close(); } } catch (e) {}
+    pointer = null;
+    var pageSecure = location.protocol === 'https:';
+    if (secure === undefined) secure = pageSecure;
+    var url = secure ? 'wss://' + host + ':3001' : 'ws://' + host + ':3000';
+    setStatus(false, 'Connecting…');
+    var sock;
+    try { sock = new WebSocket(url); } catch (e) { fail(host, secure); return; }
+    ws = sock;
+    var opened = false;
+    sock.onopen = function () {
+      opened = true;
+      var p = JSON.parse(JSON.stringify(PAIRING));
+      var key = store.get('tv.key.' + host);
+      if (key) p['client-key'] = key;
+      var id = 'register_' + (++seq);
+      pending[id] = { resolve: function () {}, reject: function () {}, keep: true };
+      sock.send(JSON.stringify({ type: 'register', id: id, payload: p }));
+      if (!key) toast('Look at your TV and choose Accept', 6000);
+    };
+    sock.onmessage = function (ev) {
+      var m; try { m = JSON.parse(ev.data); } catch (e) { return; }
+      if (m.type === 'registered') {
+        if (m.payload && m.payload['client-key']) store.set('tv.key.' + host, m.payload['client-key']);
+        setStatus(true); toast('Connected to your TV'); afterConnect();
+        if (m.id && pending[m.id]) delete pending[m.id];
+        return;
+      }
+      var p = m.id && pending[m.id];
+      if (m.type === 'error') {
+        if (p) { delete pending[m.id]; p.reject(new Error(m.error || 'TV error')); }
+        if (m.id && m.id.indexOf('register') === 0) { setStatus(false, 'Denied'); toast('TV said no. Tap Connect and choose Accept on the TV.'); }
+        return;
+      }
+      if (m.id === 'volsub') { showVolume(m.payload); return; }
+      if (p && !p.keep) { delete pending[m.id]; p.resolve(m.payload || {}); }
+    };
+    sock.onerror = function () {};
+    sock.onclose = function () {
+      if (ws !== sock) return;
+      ws = null; pointer = null;
+      if (!opened) { fail(host, secure); return; }
+      setStatus(false, 'Off');
+    };
+  }
+  function fail(host, secure) {
+    if (!secure && location.protocol !== 'https:' && !triedSecure) { triedSecure = true; connect(host, true); return; }
+    triedSecure = false;
+    setStatus(false, 'Can’t reach TV');
+    if (secure && /iPhone|iPad|Mac/.test(navigator.userAgent)) toast('Can’t reach the TV. On iPhone tap “iPhone: trust TV” once, then Connect again.', 6000);
+    else toast('Can’t reach the TV. Is it on, and on the same Wi-Fi?', 5000);
+  }
+  function afterConnect() {
+    ws.send(JSON.stringify({ type: 'subscribe', id: 'volsub', uri: 'ssap://audio/getVolume' }));
+    openPointer();
+  }
+  function openPointer() {
+    return request('ssap://com.webos.service.networkinput/getPointerInputSocket').then(function (r) {
+      return new Promise(function (resolve, reject) {
+        var s = new WebSocket(r.socketPath);
+        s.onopen = function () { pointer = s; resolve(s); };
+        s.onerror = function () { reject(new Error('pointer')); };
+        s.onclose = function () { if (pointer === s) pointer = null; };
+      });
+    });
+  }
+  function pointerSend(type, fields) {
+    var go = function (s) {
+      var msg = 'type:' + type + '\n';
+      Object.keys(fields || {}).forEach(function (k) { msg += k + ':' + fields[k] + '\n'; });
+      s.send(msg + '\n');
+    };
+    if (pointer && pointer.readyState === 1) { go(pointer); return Promise.resolve(); }
+    if (!connected) return Promise.reject(new Error('Not connected'));
+    return openPointer().then(go);
+  }
+  function button(name) { return pointerSend('button', { name: name }); }
+
+  // ---------- volume display
+  var volDots = $$('.vdot');
+  function showVolume(p) {
+    p = p || {}; var st = p.volumeStatus || p;
+    var vol = typeof st.volume === 'number' ? st.volume : p.volume;
+    var muted = st.muteStatus !== undefined ? st.muteStatus : p.muted;
+    if (typeof vol !== 'number') return;
+    $('#volLabel').textContent = muted ? 'Muted' : String(vol);
+    var lit = muted ? 0 : Math.ceil(Math.min(vol, 100) / 100 * volDots.length);
+    volDots.forEach(function (d, i) { d.classList.toggle('lit', (volDots.length - 1 - i) < lit); });
+    $$('[data-cmd="mute"]').forEach(function (b) { b.setAttribute('aria-pressed', muted ? 'true' : 'false'); b.style.color = muted ? '#ffc2cc' : ''; });
+    isMuted = !!muted;
+  }
+  var isMuted = false;
+
+  // ---------- commands
+  function launch(key) {
+    return request('ssap://system.launcher/launch', { id: APP_IDS[key] });
+  }
+  var CMDS = {
+    power: function () { return request('ssap://system/turnOff').then(function () { toast('Night night 🌙'); setStatus(false, 'Off'); }); },
+    play: function () { return request('ssap://media.controls/play'); },
+    pause: function () { return request('ssap://media.controls/pause'); },
+    playPause: function () { return button('PLAY').catch(function () { return request('ssap://media.controls/play'); }); },
+    rewind: function () { return request('ssap://media.controls/rewind'); },
+    fastForward: function () { return request('ssap://media.controls/fastForward'); },
+    volUp: function () { return request('ssap://audio/volumeUp'); },
+    volDown: function () { return request('ssap://audio/volumeDown'); },
+    mute: function () { return request('ssap://audio/setMute', { mute: !isMuted }); },
+    input: function () { return request('ssap://system.launcher/launch', { id: 'com.webos.app.inputpicker' }); },
+    settings: function () { return button('MENU'); },
+    sendText: function () {
+      var f = $('#tvtext'); var t = f.value; if (!t) return Promise.resolve();
+      return request('ssap://com.webos.service.ime/insertText', { text: t, replace: 0 }).then(function () {
+        f.value = ''; return request('ssap://com.webos.service.ime/sendEnterKey');
+      }).catch(function () { toast('Open a search box on the TV first, then Send'); });
+    },
+    connect: function () {
+      var v = ($('#ipInput').value || '').trim();
+      if (!/^\d{1,3}(\.\d{1,3}){3}$/.test(v)) { toast('That doesn’t look like an IP address (like 192.168.1.50)'); return Promise.resolve(); }
+      ip = v; store.set('tv.ip', ip); triedSecure = false; connect(ip); return Promise.resolve();
+    },
+    trust: function () {
+      var v = ($('#ipInput').value || ip || '').trim();
+      if (!v) { toast('Enter the TV’s IP first'); return Promise.resolve(); }
+      toast('A warning page opens: tap Show Details › visit this website. Then come back.', 7000);
+      window.open('https://' + v + ':3001/', '_blank'); return Promise.resolve();
+    },
+    forget: function () {
+      if (ip) store.del('tv.key.' + ip); store.del('tv.ip'); ip = ''; $('#ipInput').value = '';
+      try { if (ws) ws.close(); } catch (e) {} setStatus(false, 'Off'); toast('Forgot this TV'); return Promise.resolve();
+    }
+  };
+  var NEEDS_TV = { connect: 0, trust: 0, forget: 0 };
+  function run(name) {
+    if (!(name in NEEDS_TV) && !connected) { toast(ip ? 'Not connected. Tap TVs › Connect.' : 'Set up your TV first'); if (!ip) show('setup'); return; }
+    var f = CMDS[name] || function () { return button(name); };
+    Promise.resolve().then(f).catch(function (e) { toast(e.message || 'Something went wrong'); });
+  }
+
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-cmd]'); if (b) { run(b.dataset.cmd); return; }
+    b = e.target.closest('[data-btn]'); if (b) { run(b.dataset.btn); return; }
+    b = e.target.closest('[data-app]'); if (b) { appTap(b); return; }
+  });
+  $('#tvtext').addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); run('sendText'); } });
+  $('#ipInput').addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); run('connect'); } });
+
+  // hold-to-repeat (volume, arrows)
+  var holdT0, holdT1;
+  function holdStop() { clearTimeout(holdT0); clearInterval(holdT1); }
+  $$('[data-hold]').forEach(function (b) {
+    b.addEventListener('pointerdown', function () {
+      holdStop(); var n = b.dataset.hold; run(n);
+      holdT0 = setTimeout(function () { holdT1 = setInterval(function () { run(n); }, n.indexOf('vol') === 0 ? 140 : 220); }, 420);
+    });
+    ['pointerup', 'pointerleave', 'pointercancel'].forEach(function (ev) { b.addEventListener(ev, holdStop); });
+    b.addEventListener('contextmenu', function (e) { e.preventDefault(); });
+  });
+
+  // ---------- app menus: tongue & frond
+  var openApp = null;
+  function closeMenu() {
+    openApp = null; var L = $('#menuLayer'); if (L) L.innerHTML = '';
+    $$('[data-app]').forEach(function (b) { if (b.hasAttribute('aria-expanded')) b.setAttribute('aria-expanded', 'false'); b.style.filter = ''; });
+  }
+  function appTap(b) {
+    var key = b.dataset.app;
+    if (!MENU_KIND[key]) { if (!connected) { run('x'); return; } launch(key).catch(function (e) { toast(e.message); }); return; }
+    if (openApp === key) { closeMenu(); return; }
+    closeMenu(); openApp = key; b.setAttribute('aria-expanded', 'true');
+    b.style.filter = 'brightness(1.4) drop-shadow(0 0 16px ' + getComputedStyle(b).getPropertyValue('--glow') + ')';
+    var name = APP_NAMES[key];
+    var items = [['Open ' + name, function () { return launch(key); }],
+      ['Search…', function () { return launch(key).then(function () { show('touch'); setTimeout(function () { $('#tvtext').focus(); }, 300); toast('Open search in ' + name + ', then type here and Send', 6000); }); }],
+      ['Close ' + name, function () { return request('ssap://system.launcher/close', { id: APP_IDS[key] }); }]];
+    var L = $('#menuLayer');
+    var x = parseFloat(b.style.left), y = parseFloat(b.style.top), w = parseFloat(b.style.width), h = parseFloat(b.style.height), cx = x + w / 2;
+    var html = '<button class="scrim" aria-label="Close menu" data-close style="position: absolute; inset: 0; border: 0; background: rgba(2,2,12,.6); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); z-index: 15"></button>';
+    if (MENU_KIND[key] === 'tongue') {
+      var tX = Math.max(12, Math.min(390 - 212, Math.round(cx - 100)));
+      html += '<div class="tongue" role="menu" aria-label="' + name + ' menu" style="position: absolute; z-index: 20; left: ' + tX + 'px; top: ' + (y + h - 10) + 'px; width: 200px; padding: 18px 10px 44px; box-sizing: border-box; display: flex; flex-direction: column; border-radius: 30px 34px 100px 110px / 22px 26px 150px 140px; background: radial-gradient(40% 14% at 34% 6%, rgba(255,255,255,.55), rgba(255,255,255,0) 100%), radial-gradient(130% 80% at 45% 0%, #e88482, #b84a5c 45%, #7a2440 80%, #4a1028); box-shadow: inset -8px -16px 26px rgba(50,0,20,.55), inset 6px 8px 18px rgba(255,220,220,.4), 0 0 46px 10px rgba(240,110,140,.38), 0 14px 30px rgba(0,0,0,.6)">';
+      items.forEach(function (it, i) {
+        html += '<button class="titem" role="menuitem" data-mi="' + i + '" style="position: relative; height: 46px; border: 0; border-radius: 22px; background: transparent; color: #ffffff; font-family: Quicksand, system-ui, sans-serif; font-size: 15px; font-weight: ' + (i ? 600 : 700) + '; text-align: left; padding: 0 16px; text-shadow: 0 1px 4px rgba(60,0,20,.8)">' + it[0] + '</button>';
+      });
+      html += '</div>';
+    } else {
+      var n = items.length, sx = function (i) { return 150 + (i % 2 === 0 ? 12 : -12); }, end = 60 + n * 50, ax = Math.round(cx - 45);
+      var d = 'M' + ax + ' 0 C ' + ax + ' 26, 150 16, 150 40';
+      for (var i = 0; i < n; i++) { var yy = 66 + i * 50; d += ' S ' + (sx(i) + (i % 2 ? -6 : 6)) + ' ' + (yy - 14) + ', ' + sx(i) + ' ' + yy; }
+      d += ' S 150 ' + (end - 6) + ', 150 ' + end + ' C 150 ' + (end + 26) + ', 122 ' + (end + 28) + ', 122 ' + (end + 10) + ' C 122 ' + (end - 2) + ', 138 ' + (end - 2) + ', 138 ' + (end + 8);
+      html += '<div role="menu" aria-label="' + name + ' menu" style="position: absolute; z-index: 20; left: 45px; top: ' + (y + h - 4) + 'px; width: 300px; height: ' + (end + 44) + 'px">' +
+        '<svg aria-hidden="true" width="300" height="' + (end + 44) + '" viewBox="0 0 300 ' + (end + 44) + '" fill="none" style="position: absolute; left: 0; top: 0; overflow: visible; pointer-events: none">' +
+        '<path class="stem" d="' + d + '" stroke="#8f9bff" stroke-opacity=".6" stroke-width="12" stroke-linecap="round" style="filter: blur(4px)"/>' +
+        '<path class="stem" d="' + d + '" stroke="#e6e9ff" stroke-width="4.5" stroke-linecap="round" style="filter: drop-shadow(0 0 6px #b9c0ff)"/></svg>';
+      items.forEach(function (it, i) {
+        var right = i % 2 === 0;
+        html += '<button class="leaf wet" role="menuitem" data-mi="' + i + '" style="left: ' + (right ? sx(i) + 2 : sx(i) - 148) + 'px; top: ' + (44 + i * 50) + 'px; width: 146px; height: 44px; --rot: ' + (right ? '-60deg' : '60deg') + '; --tilt: ' + (right ? '-7deg' : '7deg') + '; --tipx: ' + (right ? '100%' : '0%') + '; --hx: ' + (right ? '30%' : '70%') + '; transform-origin: ' + (right ? 'left center' : 'right center') + '; animation-delay: ' + (200 + i * 100) + 'ms; border-radius: ' + (right ? '4px 100% 4px 100% / 4px 100% 4px 100%' : '100% 4px 100% 4px / 100% 4px 100% 4px') + '; font-size: 13px; font-weight: ' + (i ? 600 : 700) + '">' + it[0] + '</button>';
+      });
+      html += '</div>';
+    }
+    L.innerHTML = html;
+    L.querySelector('[data-close]').addEventListener('click', closeMenu);
+    $$('[data-mi]', L).forEach(function (mi) {
+      mi.addEventListener('click', function () {
+        var f = items[+mi.dataset.mi][1]; closeMenu();
+        if (!connected) { run('x'); return; }
+        Promise.resolve().then(f).catch(function (e) { toast(e.message); });
+      });
+    });
+  }
+
+  // ---------- touchpad
+  var pad = $('#pad'), last = null, moved = 0, startT = 0, twoY = null, acc = { x: 0, y: 0 }, raf = 0;
+  function flush() {
+    raf = 0; var dx = Math.round(acc.x), dy = Math.round(acc.y);
+    if (dx || dy) { acc.x -= dx; acc.y -= dy; pointerSend('move', { dx: dx, dy: dy, down: 0 }).catch(function () {}); }
+  }
+  pad.addEventListener('touchstart', function (e) {
+    e.preventDefault();
+    if (e.touches.length === 2) { twoY = (e.touches[0].clientY + e.touches[1].clientY) / 2; last = null; return; }
+    var t = e.touches[0]; last = { x: t.clientX, y: t.clientY }; moved = 0; startT = Date.now();
+  }, { passive: false });
+  pad.addEventListener('touchmove', function (e) {
+    e.preventDefault();
+    if (e.touches.length === 2 && twoY !== null) {
+      var y = (e.touches[0].clientY + e.touches[1].clientY) / 2, dy = y - twoY;
+      if (Math.abs(dy) > 6) { twoY = y; pointerSend('scroll', { dx: 0, dy: Math.round(-dy / 2) }).catch(function () {}); }
+      return;
+    }
+    if (!last) return;
+    var t = e.touches[0], dx = t.clientX - last.x, dy2 = t.clientY - last.y;
+    last = { x: t.clientX, y: t.clientY }; moved += Math.abs(dx) + Math.abs(dy2);
+    acc.x += dx * 1.8; acc.y += dy2 * 1.8; if (!raf) raf = requestAnimationFrame(flush);
+  }, { passive: false });
+  pad.addEventListener('touchend', function (e) {
+    e.preventDefault();
+    if (e.touches.length === 0) {
+      if (last && moved < 8 && Date.now() - startT < 300) { if (!connected) run('x'); else pointerSend('click').catch(function () {}); }
+      last = null; twoY = null;
+    }
+  }, { passive: false });
+  // mouse fallback (desktop testing)
+  var mdown = null;
+  pad.addEventListener('mousedown', function (e) { mdown = { x: e.clientX, y: e.clientY, m: 0 }; });
+  window.addEventListener('mousemove', function (e) {
+    if (!mdown) return; var dx = e.clientX - mdown.x, dy = e.clientY - mdown.y; mdown.x = e.clientX; mdown.y = e.clientY; mdown.m += Math.abs(dx) + Math.abs(dy);
+    acc.x += dx * 1.8; acc.y += dy * 1.8; if (!raf) raf = requestAnimationFrame(flush);
+  });
+  window.addEventListener('mouseup', function () { if (mdown && mdown.m < 6) { if (!connected) run('x'); else pointerSend('click').catch(function () {}); } mdown = null; });
+
+  // ---------- start
+  $('#ipInput').value = ip;
+  setStatus(false, ip ? 'Connecting…' : 'Off');
+  show(ip ? 'remote' : 'setup');
+  if (ip) connect(ip);
+  document.addEventListener('visibilitychange', function () { if (!document.hidden && ip && !connected) connect(ip); });
+  window.__tv = { connect: connect, run: run, state: function () { return { connected: connected, ip: ip }; } };
+})();
+
+</script>
+</body>
+</html>
